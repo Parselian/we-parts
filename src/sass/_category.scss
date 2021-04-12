@@ -1,0 +1,12 @@
+.category {
+  display: flex;
+  justify-content: center;
+
+  &-devices {
+    .tile {
+      &:not(:last-child) {
+        margin-right: 40px;
+      }
+    }
+  }
+}

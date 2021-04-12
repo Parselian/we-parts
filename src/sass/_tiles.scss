@@ -1,0 +1,70 @@
+.tile {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: block;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  &_big {
+    width: 100%;
+    height: 400px;
+    .tile__title {
+      padding: 100px 50px 50px 20px
+    }
+  }
+  &_medium {
+    width: 50%;
+    max-height: 300px;
+  }
+  &_small {
+    padding: 20px 30px 15px 30px;
+    width: fit-content;
+    cursor: pointer;
+    &[data-device="macbook"] {
+      background: rgb(172,1,255);
+      background: linear-gradient(117deg, rgba(172,1,255,1) 0%, rgba(203,11,201,1) 100%);
+    }
+    &[data-device="imac"] {
+      background: rgb(172,1,255);
+      background: linear-gradient(117deg, rgba(172,1,255,1) 0%, rgba(203,11,201,1) 100%);
+    }
+    &[data-device="iphone"] {
+      background: rgb(172,1,255);
+      background: linear-gradient(117deg, rgba(172,1,255,1) 0%, rgba(203,11,201,1) 100%);
+    }
+    &[data-device="ipad"] {
+      background: rgb(172,1,255);
+      background: linear-gradient(117deg, rgba(172,1,255,1) 0%, rgba(203,11,201,1) 100%);
+    }
+    &[data-device="apple-watch"] {
+      background: rgb(172,1,255);
+      background: linear-gradient(117deg, rgba(172,1,255,1) 0%, rgba(203,11,201,1) 100%);
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+  &__title {
+    z-index: 1;
+    text-align: center;
+  }
+  &__icon {
+    width: 100px;
+    height: 70px;
+  }
+  &__text {
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
