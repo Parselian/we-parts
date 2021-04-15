@@ -1,0 +1,12 @@
+.about {
+  padding-bottom: 60px;
+  .title {
+    &:first-child {
+      margin-bottom: 15px;
+      font-weight: 400;
+      & + p {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
