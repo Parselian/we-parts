@@ -1,6 +1,6 @@
 .about {
   padding-bottom: 60px;
-  &__title {
+  .title {
     &:first-child {
       margin-bottom: 15px;
       font-weight: 400;
@@ -8,17 +8,5 @@
         margin-bottom: 30px;
       }
     }
-
-    margin-bottom: 10px;
-  }
-  &__text {
-    margin-bottom: 10px;
-    font-weight: 300;
-  }
-  &__list {
-    margin-bottom: 30px !important;
-    padding-left: 20px !important;
-    font-weight: 300;
-    list-style: disc !important;
   }
 }

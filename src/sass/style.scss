@@ -16,6 +16,10 @@ body {
   }
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -46,11 +50,32 @@ body {
   color: $alt-text-color;
 }
 
+.title {
+  margin-bottom: 10px;
+}
+
+.text {
+  margin-bottom: 10px;
+  font-weight: 300;
+}
+
+.list {
+  margin-bottom: 30px !important;
+  padding-left: 20px !important;
+  font-weight: 300;
+  list-style: disc !important;
+}
+
+
+
 
 @import './burger';
+@import './loader-icon';
 @import './header';
+@import './breadcrumbs';
 @import './tiles';
 @import './category';
 @import './about';
+@import './catalog';
 @import './footer';
 @import './media';
