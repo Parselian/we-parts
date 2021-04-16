@@ -25,35 +25,29 @@ require_once(__DIR__ . '/configs/config.php');
 
 <main class="container">
 
-	<div class="breadcrumbs">
-		<h2 class="breadcrumbs__title">Запчасти MacBook</h2>
-		<nav class="breadcrumbs__list">
-			<a href="/" class="breadcrumbs__list-item">Главная / </a>
-			<span class="breadcrumbs__list-item breadcrumbs__list-item_current">MacBook</span>
-		</nav>
-	</div>
+	<? require_once(__DIR__ . '/modules/breadcrumbs.php') ?>
 
 	<div class="category-parts__mobile">
 		<button class="category-parts__mobile-btn">Категории</button>
 
 		<ul class="category-parts__mobile-list">
 			<li class="category-parts__mobile-list-item">
-				<a href="#" class="category-parts__mobile-list-link">Охлаждение</a>
+				<a href="/product-page.php" class="category-parts__mobile-list-link">Охлаждение</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="#" class="category-parts__mobile-list-link">Аккумулятор</a>
+				<a href="/product-page.php" class="category-parts__mobile-list-link">Аккумулятор</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="#" class="category-parts__mobile-list-link">Дисплей</a>
+				<a href="/product-page.php" class="category-parts__mobile-list-link">Дисплей</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="#" class="category-parts__mobile-list-link">Плата</a>
+				<a href="/product-page.php" class="category-parts__mobile-list-link">Плата</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="#" class="category-parts__mobile-list-link">Клавиатура</a>
+				<a href="/product-page.php" class="category-parts__mobile-list-link">Клавиатура</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="#" class="category-parts__mobile-list-link">Зарядное ус-во</a>
+				<a href="/product-page.php" class="category-parts__mobile-list-link">Зарядное ус-во</a>
 			</li>
 		</ul>
 	</div>
