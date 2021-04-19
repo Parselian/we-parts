@@ -140,46 +140,52 @@ button {
   display: block;
 }
 
-.inner-page__title {
-  margin-bottom: 20px;
-  font-size: 28px;
-  font-weight: 400;
+.inner-page {
+  &__title {
+    font-size: 28px;
+    font-weight: 400;
+  }
+  &__subtitle {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
 }
 
-.page__title {
-  font-size: 40px;
-  color: $alt-text-color;
-}
+  .page__title {
+    font-size: 40px;
+    color: $alt-text-color;
+  }
 
-.title {
-  margin-bottom: 10px;
-}
+  .title {
+    margin-bottom: 10px;
+  }
 
-.text {
-  margin-bottom: 10px;
-  font-weight: 300;
-}
+  .text {
+    margin-bottom: 10px;
+    font-weight: 300;
+  }
 
-.list {
-  margin-bottom: 30px !important;
-  padding-left: 20px !important;
-  font-weight: 300;
-  list-style: disc !important;
-}
-
-
+  .list {
+    margin-bottom: 30px !important;
+    padding-left: 20px !important;
+    font-weight: 300;
+    list-style: disc !important;
+  }
 
 
-@import './burger';
-@import './loader-icon';
-@import './header';
-@import './breadcrumbs';
-@import './tiles';
-@import './category';
-@import './about';
-@import './catalog';
-@import './product';
-@import './cart';
-@import './signup';
-@import './footer';
-@import './media';
+
+
+  @import './burger';
+  @import './loader-icon';
+  @import './header';
+  @import './breadcrumbs';
+  @import './tiles';
+  @import './category';
+  @import './about';
+  @import './catalog';
+  @import './product';
+  @import './cart';
+  @import './signup';
+  @import './profile';
+  @import './footer';
+  @import './media';
