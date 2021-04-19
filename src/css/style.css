@@ -480,6 +480,50 @@ button {
     .about .title:first-child + p {
       margin-bottom: 30px; }
 
+.contacts {
+  padding-bottom: 60px; }
+  .contacts-list {
+    margin-top: 15px !important;
+    margin-bottom: 40px !important;
+    display: flex;
+    justify-content: space-between; }
+    .contacts-list__item {
+      display: flex;
+      align-items: center; }
+      .contacts-list__item-icon {
+        margin-right: 10px;
+        width: 35px;
+        height: 35px;
+        fill: #008081; }
+      .contacts-list__item-link {
+        text-decoration: none;
+        font-size: 18px;
+        color: #000; }
+  .contacts-location {
+    display: flex;
+    justify-content: space-between; }
+    .contacts-location__info {
+      padding-top: 40px;
+      width: 38%;
+      margin-right: 2%; }
+      .contacts-location__info-title {
+        margin-bottom: 20px;
+        font-size: 26px;
+        font-weight: 400; }
+      .contacts-location__info-address {
+        margin-bottom: 20px;
+        display: flex; }
+      .contacts-location__info-icon {
+        margin-right: 10px;
+        width: 25px;
+        height: 25px;
+        fill: #008081; }
+      .contacts-location__info-text {
+        font-size: 18px; }
+    .contacts-location__map {
+      height: 350px;
+      width: 60%; }
+
 .catalog {
   padding-bottom: 60px; }
   .catalog__card {
@@ -1145,6 +1189,18 @@ button {
     width: 100%; }
   .product__form-row {
     flex-direction: row; }
+  .contacts-list {
+    flex-direction: column; }
+    .contacts-list__item:not(:last-child) {
+      margin-bottom: 25px; }
+  .contacts-location {
+    flex-direction: column; }
+    .contacts-location__info {
+      margin-right: 0;
+      margin-bottom: 20px;
+      width: 100%; }
+    .contacts-location__map {
+      width: 100%; }
   .cart__goods thead {
     display: none; }
   .cart__goods tbody tr {
