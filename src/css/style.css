@@ -105,9 +105,12 @@ button {
   display: block; }
 
 .inner-page__title {
-  margin-bottom: 20px;
   font-size: 28px;
   font-weight: 400; }
+
+.inner-page__subtitle {
+  font-size: 16px;
+  margin-bottom: 20px; }
 
 .page__title {
   font-size: 40px;
@@ -882,6 +885,31 @@ button {
     .signup__features-list-item {
       margin-bottom: 10px; }
 
+.profile-main__link {
+  position: relative;
+  width: 48%;
+  text-decoration: none; }
+  .profile-main__links {
+    display: flex;
+    flex-wrap: wrap; }
+  .profile-main__link:before {
+    position: absolute;
+    content: '';
+    left: -15px;
+    height: 100%;
+    width: 1px;
+    background-color: #c4c4c4; }
+  .profile-main__link:nth-child(odd) {
+    margin-right: 4%; }
+  .profile-main__link-title {
+    margin-bottom: 3px;
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000; }
+  .profile-main__link-text {
+    color: #c4c4c4; }
+
 .footer {
   padding-top: 30px;
   background-color: #99dedf; }
@@ -1162,6 +1190,14 @@ button {
       padding-bottom: 30px; }
       .signup__features-title {
         margin-bottom: 10px; }
+  .profile-main__link {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 15px;
+    margin-bottom: 30px; }
+    .profile-main__links {
+      margin-top: 40px;
+      padding-bottom: 60px; }
   .footer__misc .container {
     flex-direction: column;
     align-items: flex-start; }

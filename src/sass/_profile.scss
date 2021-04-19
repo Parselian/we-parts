@@ -1,0 +1,35 @@
+.profile {
+  &-main {
+    &__link {
+      &s {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      position: relative;
+      width: 48%;
+      text-decoration: none;
+      &:before {
+        position: absolute;
+        content: '';
+        left: -15px;
+        height: 100%;
+        width: 1px;
+        background-color: $border-color;
+      }
+      &:nth-child(odd) {
+        margin-right: 4%;
+      }
+      &-title {
+        margin-bottom: 3px;
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        color: $main-text-color;
+      }
+      &-text {
+        color: $border-color;
+      }
+    }
+  }
+}
