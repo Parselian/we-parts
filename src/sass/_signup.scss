@@ -1,0 +1,54 @@
+.signup {
+  display: flex;
+  justify-content: space-between;
+  &__col {
+    width: 50%;
+  }
+  &__form {
+    width: 45%;
+    margin-bottom: 60px;
+    margin-right: 2%;
+    &-row {
+      display: flex;
+      align-items: center;
+      .form {
+        &__input {
+          &-wrap {
+            width: 49.5%;
+            &:first-child {
+              margin-right: 1%;
+            }
+          }
+        }
+      }
+    }
+    &-input {
+      &-wrap {
+        margin-bottom: 15px;
+      }
+    }
+
+    &-footnote {
+      &-wrap {
+        margin-bottom: 15px;
+      }
+      font-size: 14px;
+    }
+  }
+
+  &__features {
+    &-title {
+      margin-bottom: 30px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+    &-list {
+      padding-left: 20px !important;
+      list-style: disc !important;
+      font-size: 16px;
+      &-item {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
