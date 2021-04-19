@@ -480,6 +480,58 @@ button {
     .about .title:first-child + p {
       margin-bottom: 30px; }
 
+.refund-attention {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  padding: 15px;
+  text-align: center;
+  background-color: #f7ffa3; }
+  .refund-attention__text {
+    margin-bottom: 10px; }
+    .refund-attention__text_notice {
+      margin-bottom: 30px;
+      text-decoration: underline; }
+  .refund-attention__list {
+    margin-bottom: 30px !important; }
+    .refund-attention__list-item {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .refund-attention__list-item:not(:last-child) {
+        margin-bottom: 10px; }
+      .refund-attention__list-item-icon {
+        margin-right: 10px;
+        width: 40px;
+        height: 40px; }
+      .refund-attention__list-item-text {
+        font-size: 18px;
+        color: #000;
+        text-decoration: none; }
+
+.refund__row {
+  display: flex; }
+
+.refund__col {
+  width: 49%; }
+  .refund__col:not(:last-child) {
+    margin-right: 2%; }
+
+.refund__rules-title {
+  margin-bottom: 5px;
+  font-size: 24px; }
+
+.refund__rules-text {
+  margin-bottom: 5px;
+  font-size: 18px;
+  line-height: 1.6; }
+
+.refund__rules-list {
+  margin-bottom: 20px !important;
+  padding-left: 15px !important;
+  font-size: 18px;
+  line-height: 1.6;
+  list-style: decimal !important; }
+
 .contacts {
   padding-bottom: 60px; }
   .contacts-list {
@@ -1057,7 +1109,16 @@ button {
     margin-right: 0;
     width: 100%; }
     .product__form-col:first-child {
-      margin-bottom: 40px; } }
+      margin-bottom: 40px; }
+  .refund__row {
+    flex-direction: column; }
+  .refund__col {
+    width: 100%; }
+    .refund__col:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 40px; }
+  .refund__rules-text, .refund__rules-list {
+    font-size: 16px; } }
 
 @media (max-width: 900px) {
   .product__about {
