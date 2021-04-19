@@ -12,6 +12,7 @@ require_once(__DIR__ . '/configs/config.php');
     <!--    <link rel="stylesheet" href="./css/bootstrap-grid.min.css"> -->
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/fonts.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
           rel="stylesheet">
@@ -30,8 +31,8 @@ require_once(__DIR__ . '/configs/config.php');
         <div class="product__row product__general">
             <div class="product__col product__img-wrap">
                 <picture>
-                    <img src="./images/keyboard-macbook-a1181.jpg" alt="Клавиатура" class="product__img">
                     <source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
+                    <img src="./images/keyboard-macbook-a1181.jpg" alt="Клавиатура" class="product__img">
                 </picture>
             </div>
 
@@ -44,11 +45,11 @@ require_once(__DIR__ . '/configs/config.php');
 							<div class="product__form-price">2 990 Р</div>
 							<div class="product__form-wholesale">Опт 2 840 Р</div>
 
-							<div class="product__form-amount">
-								<span class="product__form-amount-label">Кол-во:</span>
-								<input type="text" value="1" class="product__form-amount-input">
-								<span class="product__form-amount-btn product__form-amount-inc">+</span>
-								<span class="product__form-amount-btn product__form-amount-dec">-</span>
+							<div class="amount-input__wrap">
+								<span class="amount-input__label">Кол-во:</span>
+								<input type="text" value="1" class="amount-input">
+								<span class="amount-input__inc">+</span>
+								<span class="amount-input__dec">-</span>
 							</div>
 
 							<button class="product__form-btn product__form-btn-cart">

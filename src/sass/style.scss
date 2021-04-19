@@ -1,7 +1,7 @@
 @import './variables';
 
 body {
-  font-family: 'Roboto', sans-serif, --apple-system;
+  font-family: 'Myriad Pro', 'Roboto', sans-serif, --apple-system;
   &.inactive {
     &:before {
       position: fixed;
@@ -16,6 +16,10 @@ body {
   }
 }
 
+
+
+/*------- COMMON BLOCKS ------*/
+
 button {
   cursor: pointer;
 }
@@ -27,6 +31,62 @@ button {
   width: 95%;
 }
 
+.promo {
+  margin-bottom: 40px;
+}
+
+.logo {
+  max-width: 200px;
+}
+
+.amount-input {
+    &__wrap {
+      position: relative;
+      margin-bottom: 15px;
+      width: fit-content;
+    }
+  padding: 5px 10px;
+  width: 31px;
+  height: 40px;
+  border: 1px solid $border-color;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-right: none;
+  &__label {
+    margin-right: 10px;
+    font-weight: 600;
+  }
+  &__inc, &__dec {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    color: $border-color;
+    border: 1px solid $border-color;
+    cursor: pointer;
+    transition: .2s;
+    &:hover {
+      color: $main-text-color;
+    }
+  }
+  &__inc {
+    top: 0;
+    right: -20px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
+  }
+  &__dec {
+    bottom: 0;
+    right: -20px;
+    border-bottom-right-radius: 5px;
+  }
+}
+
+
+/*------- TYPOGRAPHIC -------*/
+
 .text {
   &_bold {
     font-weight: 700;
@@ -35,14 +95,6 @@ button {
 
 .line-break {
   display: block;
-}
-
-.logo {
-  max-width: 200px;
-}
-
-.promo {
-  margin-bottom: 40px;
 }
 
 .page__title {
@@ -78,5 +130,6 @@ button {
 @import './about';
 @import './catalog';
 @import './product';
+@import './cart';
 @import './footer';
 @import './media';

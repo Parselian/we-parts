@@ -12,6 +12,7 @@ require_once(__DIR__ . '/configs/config.php');
 	<!--    <link rel="stylesheet" href="./css/bootstrap-grid.min.css"> -->
 	<link rel="stylesheet" href="./css/reset.css">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/fonts.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
 				rel="stylesheet">
