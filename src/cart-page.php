@@ -26,7 +26,7 @@ require_once(__DIR__ . '/configs/config.php');
 
 <main class="container">
 	<form class="cart">
-		<h1 class="cart__title">Содержание корзины</h1>
+		<h1 class="inner-page__title">Содержание корзины</h1>
 		<table class="cart__goods">
 			<thead>
 			<tr>

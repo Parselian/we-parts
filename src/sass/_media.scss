@@ -383,6 +383,24 @@
     }
   }
 
+  .signup {
+    flex-direction: column;
+    &__col {
+      width: 100%;
+    }
+    &__form {
+      margin-right: 0;
+      width: 100%;
+    }
+
+    &__features {
+      padding-bottom: 30px;
+      &-title {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
   .footer {
     &__misc {
       .container {

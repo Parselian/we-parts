@@ -16,6 +16,18 @@ body {
   }
 }
 
+.flex_stretch {
+  display: flex;
+  flex-direction: column;
+
+  main {
+    flex: 100 0 auto;
+  }
+
+  .footer {
+    flex: 1 0 auto;
+  }
+}
 
 
 /*------- COMMON BLOCKS ------*/
@@ -84,6 +96,34 @@ button {
   }
 }
 
+.form {
+  &__label {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  &__input {
+    &-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid $border-color;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    &:focus {
+      border-color: $accent-catalog-color;
+    }
+  }
+
+  &__submit {
+    padding: 7px 15px;
+    color: $alt-text-color;
+    background-color: $accent-catalog-color;
+  }
+}
 
 /*------- TYPOGRAPHIC -------*/
 
@@ -91,10 +131,19 @@ button {
   &_bold {
     font-weight: 700;
   }
+  &_alert {
+    color: #ff0000;
+  }
 }
 
 .line-break {
   display: block;
+}
+
+.inner-page__title {
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 400;
 }
 
 .page__title {
@@ -131,5 +180,6 @@ button {
 @import './catalog';
 @import './product';
 @import './cart';
+@import './signup';
 @import './footer';
 @import './media';
