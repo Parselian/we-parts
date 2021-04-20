@@ -5,3 +5,4 @@
     $company_name = 'WeParts';
     $email = 'example@ex.ru';
     $site_title = $company_name . ' | Запчасти для техники Apple в СПб';
+    $site_link = 'https://we-parts.ru';

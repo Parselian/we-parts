@@ -26,7 +26,7 @@ require_once(__DIR__ . '/configs/config.php');
 
     <? require_once(__DIR__ . '/modules/header.php') ?>
 
-    <main class="container contacts">
+    <main class="container refund">
         <h1 class="inner-page__title">
              Гарантия и возврат
         </h1>

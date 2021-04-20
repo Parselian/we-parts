@@ -576,6 +576,23 @@ button {
       height: 350px;
       width: 60%; }
 
+.privacy__title {
+  font-size: 28px;
+  font-weight: 400;
+  margin-bottom: 5px; }
+
+.privacy__text, .privacy__list {
+  font-size: 16px;
+  font-weight: 400; }
+
+.privacy__text {
+  margin-bottom: 15px; }
+
+.privacy__list {
+  padding-left: 15px !important;
+  margin-bottom: 40px !important;
+  list-style: decimal !important; }
+
 .catalog {
   padding-bottom: 60px; }
   .catalog__card {
@@ -1334,6 +1351,8 @@ button {
     height: 220px; }
     .promo .tile__title {
       padding: 50px 30px 20px 30px; }
+  .privacy__title {
+    font-size: 24px; }
   .category-common-parts .tile {
     margin-bottom: 25px;
     height: 200px; }

@@ -485,6 +485,11 @@
       }
     }
   }
+  .privacy {
+    &__title {
+      font-size: 24px;
+    }
+  }
   .category {
     &-common-parts {
       .tile {
@@ -493,7 +498,6 @@
       }
     }
   }
-
   .catalog {
     &__card {
       &-btn {
@@ -512,7 +516,6 @@
       }
     }
   }
-
   .product {
     &__img {
       &-wrap {
