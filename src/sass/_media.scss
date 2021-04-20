@@ -126,6 +126,18 @@
       width: 100%;
     }
   }
+  .notfound {
+    &__wrap {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    &__img {
+      max-width: 300px;
+      margin-right: 0;
+      margin-bottom: 40px;
+    }
+  }
   .footer {
     &__row {
       flex-direction: column;
