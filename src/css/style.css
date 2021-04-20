@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: 'Myriad Pro', 'Roboto', sans-serif, --apple-system; }
   body.inactive:before {
@@ -76,26 +77,30 @@ button {
     border-bottom-right-radius: 5px; }
 
 .form__label {
+  display: block;
   font-size: 14px;
   font-weight: 700; }
 
-.form__input {
+.form__input, .form__textarea {
   padding: 5px;
   font-size: 16px;
   border: 1px solid #c4c4c4;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px; }
-  .form__input-wrap {
+  .form__input-wrap, .form__textarea-wrap {
     display: flex;
     flex-direction: column; }
-  .form__input:focus {
+  .form__input:focus, .form__textarea:focus {
     border-color: #008081; }
 
 .form__submit {
   padding: 7px 15px;
   color: #fff;
-  background-color: #008081; }
+  background-color: #008081;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
 
 /*------- TYPOGRAPHIC -------*/
 .text_bold {
@@ -233,7 +238,7 @@ button {
   top: 0;
   position: sticky;
   z-index: 999999;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding-bottom: 15px;
   background-color: #000;
   border-bottom-left-radius: 20px;
@@ -1077,6 +1082,92 @@ button {
   .profile-main__link-text {
     color: #c4c4c4; }
 
+.profile-edit-goods__page-title {
+  margin-bottom: 40px; }
+
+.profile-edit-goods__row:not(:last-child) {
+  margin-bottom: 40px; }
+
+.profile-edit-goods__row-inputs {
+  padding-bottom: 20px;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #c4c4c4; }
+  .profile-edit-goods__row-inputs:not(:last-child) {
+    margin-bottom: 20px; }
+
+.profile-edit-goods__title {
+  margin-bottom: 5px;
+  font-size: 22px;
+  font-weight: 400; }
+
+.profile-edit-goods__select {
+  overflow: hidden;
+  /*----- ДЛЯ ДЕФОЛТНОГО HTML SELECT -------*/
+  padding: 10px 15px;
+  max-width: 450px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #c4c4c4;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  /*----------------------------------------*/ }
+  .profile-edit-goods__select_mobile {
+    display: none; }
+  .profile-edit-goods__select-input {
+    padding: 7px 15px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #c4c4c4;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer; }
+    .profile-edit-goods__select-input-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 450px;
+      width: 100%; }
+    .profile-edit-goods__select-input-icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      width: 10px;
+      height: 15px;
+      transform: translateY(-50%);
+      fill: #c4c4c4; }
+  .profile-edit-goods__select-list {
+    padding: 30px 10px 3px !important;
+    max-width: 450px;
+    transform: translateY(-30px);
+    border: 1px solid #c4c4c4;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px; }
+    .profile-edit-goods__select-list-item {
+      padding: 7px 5px;
+      cursor: pointer;
+      transition: .2s; }
+      .profile-edit-goods__select-list-item:hover {
+        background-color: #e1e1e1; }
+      .profile-edit-goods__select-list-item:not(:last-child) {
+        border-bottom: 1px solid #c4c4c4; }
+
+.profile-edit-goods__img {
+  max-height: 300px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px; }
+
+.profile-edit-goods__input {
+  width: 100%; }
+  .profile-edit-goods__input-wrap {
+    width: 49%; }
+    .profile-edit-goods__input-wrap:not(:last-child) {
+      margin-right: 2%; }
+
 .notfound {
   padding-top: 40px; }
   .notfound__wrap {
@@ -1178,8 +1269,7 @@ button {
     .promo .tile__title {
       padding: 70px 30px 20px 30px; }
   .category-parts {
-    flex-wrap: wrap;
-    justify-content: center; }
+    flex-wrap: wrap; }
     .category-parts .tile {
       margin-bottom: 2%; }
   .category-common-parts .tile__title {
@@ -1306,13 +1396,10 @@ button {
     margin-left: auto;
     margin-right: auto;
     flex-wrap: wrap;
-    justify-content: center;
-    max-width: 300px; }
+    justify-content: center; }
     .category-devices .tile {
       margin-bottom: 15px; }
-      .category-devices .tile:not(:last-child) {
-        margin-right: 0; }
-      .category-devices .tile:nth-child(odd) {
+      .category-devices .tile:not(:last-child), .category-devices .tile:not(:nth-child(3n)) {
         margin-right: 15px; }
       .category-devices .tile:last-child {
         margin-right: 0; }
@@ -1322,9 +1409,7 @@ button {
       width: 100%;
       height: 250px; }
   .category-parts {
-    display: none; }
-    .category-parts__mobile {
-      display: block; }
+    justify-content: center; }
   .catalog__card {
     width: 49.5%; }
     .catalog__card:not(:nth-child(3n)) {
@@ -1479,6 +1564,18 @@ button {
     margin-bottom: 30px; } }
 
 @media (max-width: 490px) {
+  .category-devices {
+    max-width: 300px; }
+    .category-devices .tile_small:not(:last-child), .category-devices .tile_small:not(:nth-child(3n)) {
+      margin-right: unset; }
+    .category-devices .tile_small:nth-child(2n) {
+      margin-right: 15px; }
+    .category-devices .tile_small:nth-child(odd), .category-devices .tile_small:last-child {
+      margin-right: 0; }
+  .category-parts {
+    display: none; }
+    .category-parts__mobile {
+      display: block; }
   .catalog__card {
     min-width: unset; }
     .catalog__card-title {
@@ -1503,7 +1600,21 @@ button {
       .catalog__pagination-arrow-text {
         display: none; }
     .catalog__pagination-dot {
-      margin-bottom: 5px; } }
+      margin-bottom: 5px; }
+  .profile-edit-goods__form-button {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 20px; }
+  .profile-edit-goods__select_mobile {
+    display: block; }
+  .profile-edit-goods__row-inputs {
+    flex-direction: column; }
+  .profile-edit-goods__input-wrap {
+    width: 100%; }
+    .profile-edit-goods__input-wrap:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 20px; } }
 
 @media (max-width: 430px) {
   .catalog__card-price {

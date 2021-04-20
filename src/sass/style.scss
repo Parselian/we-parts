@@ -102,11 +102,12 @@ button {
 
 .form {
   &__label {
+    display: block;
     font-size: 14px;
     font-weight: 700;
   }
 
-  &__input {
+  &__input, &__textarea {
     &-wrap {
       display: flex;
       flex-direction: column;
@@ -126,6 +127,9 @@ button {
     padding: 7px 15px;
     color: $alt-text-color;
     background-color: $accent-catalog-color;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
   }
 }
 
