@@ -1,4 +1,4 @@
-    <? require_once(__DIR__ . '/modules/header.php') ?>
+<? require_once(__DIR__ . '/modules/header.php') ?>
 
     <main class="container">
         <h1 class="inner-page__title">
