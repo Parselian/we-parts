@@ -17,6 +17,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
 		  rel="stylesheet">
 	<title><?= $site_title ?></title>
+
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
 </head>
 <body class="flex_stretch">
     <? require_once(__DIR__ . '/burger-menu.php') ?>
