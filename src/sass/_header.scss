@@ -81,6 +81,7 @@
       cursor: pointer;
     }
     &-item {
+      position: relative;
       &:not(:last-child) {
         margin-right: 30px;
       }
@@ -93,6 +94,79 @@
       &-text {
         font-size: 14px;
         color: $alt-text-color;
+      }
+      &_active {
+        position: relative;
+        z-index: 1;
+        &:before {
+          position: absolute;
+          content: '';
+          top: -15%;
+          height: 145%;
+          width: 150%;
+          z-index: 0;
+          background-color: #fff;
+          border-top: 2px solid $accent-catalog-color;
+        }
+        .header {
+          &__contacts {
+            &-item {
+              &-icon {
+                position: relative;
+                z-index: 1;
+                fill: #000 !important;
+              }
+              &-text {
+                position: relative;
+                z-index: 1;
+                color: #000000 !important;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-popup {
+      position: absolute;
+      top: 130%;
+      right: -25%;
+      padding-top: 20px;
+      z-index: 999;
+      width: 280px;
+      background-color: #fff;
+      cursor: initial;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+      &-list {
+        padding: 0 15px;
+        margin-bottom: 15px;
+        &-link {
+          display: block;
+          font-size: 18px;
+          text-decoration: none;
+          color: $main-text-color;
+          &:not(:last-child) {
+            margin-bottom: 6px;
+          }
+        }
+      }
+
+      &-link {
+        &s {
+          padding: 7px;
+          background-color: $alt-bg-color;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        display: inline-block;
+        padding: 7px 10px;
+        font-size: 14px;
+        text-decoration: none;
+        color: $alt-text-color;
+        background-color: $search-input-color;
+        &_accent {
+          background-color: $accent-catalog-color;
+        }
       }
     }
   }
