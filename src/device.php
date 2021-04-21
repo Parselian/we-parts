@@ -9,22 +9,22 @@
 
 		<ul class="category-parts__mobile-list">
 			<li class="category-parts__mobile-list-item">
-				<a href="/product-page.php" class="category-parts__mobile-list-link">Охлаждение</a>
+				<a href="/device" class="category-parts__mobile-list-link">Охлаждение</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="/product-page.php" class="category-parts__mobile-list-link">Аккумулятор</a>
+				<a href="/device" class="category-parts__mobile-list-link">Аккумулятор</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="/product-page.php" class="category-parts__mobile-list-link">Дисплей</a>
+				<a href="/device" class="category-parts__mobile-list-link">Дисплей</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="/product-page.php" class="category-parts__mobile-list-link">Плата</a>
+				<a href="/device" class="category-parts__mobile-list-link">Плата</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="/product-page.php" class="category-parts__mobile-list-link">Клавиатура</a>
+				<a href="/device" class="category-parts__mobile-list-link">Клавиатура</a>
 			</li>
 			<li class="category-parts__mobile-list-item">
-				<a href="/product-page.php" class="category-parts__mobile-list-link">Зарядное ус-во</a>
+				<a href="/device" class="category-parts__mobile-list-link">Зарядное ус-во</a>
 			</li>
 		</ul>
 	</div>
@@ -81,7 +81,7 @@
 					<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
 				</picture>
 
-				<a href="#" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
+				<a href="/product-page" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
 					белая</a>
 
 				<div class="catalog__card-row">
@@ -96,7 +96,12 @@
 				</div>
 
 				<div class="catalog__card-btns">
-					<input type="number" value="1" class="catalog__card-quantity">
+				<!--<input type="number" value="1" class="catalog__card-quantity">-->
+					<div class="amount-input__wrap catalog__card-quantity">
+						<input type="text" value="1" class="amount-input">
+						<span class="amount-input__inc">+</span>
+						<span class="amount-input__dec">-</span>
+					</div>
 
 					<button class="catalog__card-btn catalog__card-btn_cart">
 						<svg class="catalog__card-btn-icon">
@@ -119,7 +124,7 @@
 					<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
 				</picture>
 
-				<a href="#" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
+				<a href="/product-page" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
 					белая</a>
 
 				<div class="catalog__card-row">
@@ -134,7 +139,12 @@
 				</div>
 
 				<div class="catalog__card-btns">
-					<input type="number" value="1" class="catalog__card-quantity">
+				<!--<input type="number" value="1" class="catalog__card-quantity">-->
+					<div class="amount-input__wrap catalog__card-quantity">
+						<input type="text" value="1" class="amount-input">
+						<span class="amount-input__inc">+</span>
+						<span class="amount-input__dec">-</span>
+					</div>
 
 					<button class="catalog__card-btn catalog__card-btn_cart">
 						<svg class="catalog__card-btn-icon">
@@ -157,7 +167,7 @@
 					<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
 				</picture>
 
-				<a href="#" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
+				<a href="/product-page" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
 					белая</a>
 
 				<div class="catalog__card-row">
@@ -172,7 +182,12 @@
 				</div>
 
 				<div class="catalog__card-btns">
-					<input type="number" value="1" class="catalog__card-quantity">
+					<!--<input type="number" value="1" class="catalog__card-quantity">-->
+					<div class="amount-input__wrap catalog__card-quantity">
+						<input type="text" value="1" class="amount-input">
+						<span class="amount-input__inc">+</span>
+						<span class="amount-input__dec">-</span>
+					</div>
 
 					<button class="catalog__card-btn catalog__card-btn_cart">
 						<svg class="catalog__card-btn-icon">
@@ -195,7 +210,7 @@
 					<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
 				</picture>
 
-				<a href="#" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
+				<a href="/product-page" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
 					белая</a>
 
 				<div class="catalog__card-row">
@@ -210,7 +225,12 @@
 				</div>
 
 				<div class="catalog__card-btns">
-					<input type="number" value="1" class="catalog__card-quantity">
+				<!--<input type="number" value="1" class="catalog__card-quantity">-->
+					<div class="amount-input__wrap catalog__card-quantity">
+						<input type="text" value="1" class="amount-input">
+						<span class="amount-input__inc">+</span>
+						<span class="amount-input__dec">-</span>
+					</div>
 
 					<button class="catalog__card-btn catalog__card-btn_cart">
 						<svg class="catalog__card-btn-icon">

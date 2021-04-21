@@ -54,6 +54,11 @@
     <? require_once(__DIR__ . '/modules/footer.php') ?>
 
     <script>
+		setTimeout(function() {
+        let scriptTag = document.createElement('script');
+        scriptTag.setAttribute('src', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU&onload=init')
+        document.head.appendChild(scriptTag)
+		}, 1500)
         ymaps.ready(init);
         function init(){
             // Создание карты.

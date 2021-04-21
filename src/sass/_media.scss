@@ -161,8 +161,15 @@
         margin-right: 0;
         .footer {
           &__list {
+            padding-top: 10px !important;
             overflow: hidden;
-            height: 0;
+            //height: 0;
+            display: none;
+          }
+          &__link {
+            font-size: 18px;
+            font-weight: 400;
+            text-decoration: none;
           }
         }
       }

@@ -1,4 +1,7 @@
 <?php
+     ini_set('error_reporting', E_ALL);
+	 ini_set('display_errors', 1);
+	 ini_set('display_startup_errors', 1);
 	require_once(__DIR__ . '/../configs/config.php');
 ?>
 
@@ -18,7 +21,6 @@
 		  rel="stylesheet">
 	<title><?= $site_title ?></title>
 
-	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
 </head>
 <body class="flex_stretch">
     <? require_once(__DIR__ . '/burger-menu.php') ?>
@@ -38,12 +40,12 @@
 							<use xlink:href="./images/stack/sprite.svg#phone-call"></use>
 						</svg>
 					</a>
-					<a href="#" class="header__top-list-item">
+					<a href="/kontakty" class="header__top-list-item">
 						<svg class="header__top-list-icon">
 							<use xlink:href="./images/stack/sprite.svg#placeholder"></use>
 						</svg>
 					</a>
-					<a href="#" class="header__top-list-item">
+					<a href="/sign-in" class="header__top-list-item">
 						<svg class="header__top-list-icon">
 							<use xlink:href="./images/stack/sprite.svg#user"></use>
 						</svg>
@@ -94,7 +96,7 @@
 							<span class="header__contacts-item-text"><?= $phone_format;?></span>
 						</a>
 					</li>
-					<div class="header__contacts-item header__contacts-item header__contacts-item_active">
+					<div class="header__contacts-item header__contacts-item">
 						<svg class="header__contacts-item-icon">
 							<use xlink:href="./images/stack/sprite.svg#user"></use>
 						</svg>

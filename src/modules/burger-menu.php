@@ -1,37 +1,31 @@
 <div class="burger-menu">
 	<ul class="burger-menu__list">
 		<li class="burger-menu__list-item">
-			<a href="#" class="burger-menu__list-link">MacBook</a>
+			<a href="/device" class="burger-menu__list-link">MacBook</a>
 			<svg class="burger-menu__list-item-icon">
 				<use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
 			</svg>
 		</li>
 		<li class="burger-menu__list-item">
-			<a href="#" class="burger-menu__list-link">iPhone</a>
+			<a href="/device" class="burger-menu__list-link">iPhone</a>
 			<svg class="burger-menu__list-item-icon">
 				<use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
 			</svg>
 		</li>
 		<li class="burger-menu__list-item">
-			<a href="#" class="burger-menu__list-link">iPad</a>
+			<a href="/device" class="burger-menu__list-link">iPad</a>
 			<svg class="burger-menu__list-item-icon">
 				<use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
 			</svg>
 		</li>
 		<li class="burger-menu__list-item">
-			<a href="#" class="burger-menu__list-link">iMac</a>
+			<a href="/device" class="burger-menu__list-link">iMac</a>
 			<svg class="burger-menu__list-item-icon">
 				<use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
 			</svg>
 		</li>
 		<li class="burger-menu__list-item">
-			<a href="#" class="burger-menu__list-link">Watch</a>
-			<svg class="burger-menu__list-item-icon">
-				<use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
-			</svg>
-		</li>
-		<li class="burger-menu__list-item">
-			<a href="#" class="burger-menu__list-link">Контакты</a>
+			<a href="/device" class="burger-menu__list-link">Watch</a>
 			<svg class="burger-menu__list-item-icon">
 				<use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
 			</svg>

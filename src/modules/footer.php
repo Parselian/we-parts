@@ -11,10 +11,10 @@
             </div>
 			<ul class="footer__list">
 				<li class="footer__list-item">
-                    <a href="#" class="footer__link">Войти</a>
+                    <a href="/sign-in" class="footer__link">Войти</a>
                 </li>
 				<li class="footer__list-item">
-                    <a href="#" class="footer__link">Создать учетную запись</a>
+                    <a href="/sign-up" class="footer__link">Создать учетную запись</a>
                 </li>
 			</ul>
 		</div>
@@ -29,16 +29,16 @@
             </div>
 			<ul class="footer__list">
 				<li class="footer__list-item">
-                    <a href="#" class="footer__link">О компании</a>
+                    <a href="/about" class="footer__link">О компании</a>
                 </li>
 				<li class="footer__list-item">
-                    <a href="#" class="footer__link">Гарантия и возврат</a>
+                    <a href="/vozvrat" class="footer__link">Гарантия и возврат</a>
                 </li>
 				<li class="footer__list-item">
-                    <a href="#" class="footer__link">Оплата и доставка</a>
+                    <a href="/dostavka" class="footer__link">Оплата и доставка</a>
                 </li>
 				<li class="footer__list-item">
-                    <a href="#" class="footer__link">Политика конфиденциальности</a>
+                    <a href="/privacy-policy" class="footer__link">Политика конфиденциальности</a>
                 </li>
 			</ul>
 		</div>
@@ -101,3 +101,9 @@
 		</div>
     </div>
 </footer>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<script src="./configs/script.js"></script>
