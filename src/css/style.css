@@ -100,7 +100,9 @@ button {
   background-color: #008081;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 5px; }
+  border-radius: 5px;
+  font-size: 18px;
+  text-decoration: none; }
 
 /*------- TYPOGRAPHIC -------*/
 .text_bold {
@@ -299,16 +301,73 @@ button {
       align-items: center;
       text-decoration: none;
       cursor: pointer; }
-    .header__contacts-item:not(:last-child) {
-      margin-right: 30px; }
-    .header__contacts-item-icon {
-      width: 30px;
-      height: 30px;
-      display: inline-block;
-      fill: #fff; }
-    .header__contacts-item-text {
-      font-size: 14px;
-      color: #fff; }
+    .header__contacts-item {
+      position: relative; }
+      .header__contacts-item:not(:last-child) {
+        margin-right: 30px; }
+      .header__contacts-item-icon {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        fill: #fff; }
+      .header__contacts-item-text {
+        font-size: 14px;
+        color: #fff; }
+      .header__contacts-item_active {
+        position: relative;
+        z-index: 1; }
+        .header__contacts-item_active:before {
+          position: absolute;
+          content: '';
+          top: -15%;
+          height: 145%;
+          width: 150%;
+          z-index: 0;
+          background-color: #fff;
+          border-top: 2px solid #008081; }
+        .header__contacts-item_active .header__contacts-item-icon {
+          position: relative;
+          z-index: 1;
+          fill: #000 !important; }
+        .header__contacts-item_active .header__contacts-item-text {
+          position: relative;
+          z-index: 1;
+          color: #000000 !important; }
+    .header__contacts-popup {
+      position: absolute;
+      top: 130%;
+      right: -25%;
+      padding-top: 20px;
+      z-index: 999;
+      width: 280px;
+      background-color: #fff;
+      cursor: initial;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25); }
+      .header__contacts-popup-list {
+        padding: 0 15px;
+        margin-bottom: 15px; }
+        .header__contacts-popup-list-link {
+          display: block;
+          font-size: 18px;
+          text-decoration: none;
+          color: #000; }
+          .header__contacts-popup-list-link:not(:last-child) {
+            margin-bottom: 6px; }
+      .header__contacts-popup-link {
+        display: inline-block;
+        padding: 7px 10px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #555555; }
+        .header__contacts-popup-links {
+          padding: 7px;
+          background-color: #f2f2f2;
+          display: flex;
+          align-items: center;
+          justify-content: space-between; }
+        .header__contacts-popup-link_accent {
+          background-color: #008081; }
 
 .breadcrumbs {
   margin-bottom: 40px;
@@ -384,8 +443,8 @@ button {
     margin-bottom: 5px;
     display: block;
     width: 100%;
-    max-width: 100px;
-    max-height: 70px; }
+    max-width: 80px;
+    max-height: 50px; }
   .tile__text {
     font-size: 14px;
     font-weight: 400;
@@ -1025,6 +1084,7 @@ button {
       background-color: #008081; }
 
 .signup {
+  margin-top: 40px;
   display: flex;
   justify-content: space-between; }
   .signup__col {
@@ -1042,6 +1102,17 @@ button {
           margin-right: 1%; }
     .signup__form-input-wrap {
       margin-bottom: 15px; }
+    .signup__form-checkbox-wrap {
+      margin-bottom: 30px;
+      padding: 20px 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: #f2f2f2; }
+    .signup__form-checkbox-label {
+      margin-left: 10px;
+      font-size: 16px;
+      cursor: pointer; }
     .signup__form-footnote {
       font-size: 14px; }
       .signup__form-footnote-wrap {
@@ -1512,6 +1583,11 @@ button {
     .signup__form {
       margin-right: 0;
       width: 100%; }
+      .signup__form-submit {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: fit-content; }
     .signup__features {
       padding-bottom: 30px; }
       .signup__features-title {
