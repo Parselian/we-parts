@@ -1,6 +1,6 @@
 <? require_once(__DIR__ . '/modules/header.php') ?>
 
-<main class="container delivery">
+<main class="container profile-edit-goods">
 	<h1 class="inner-page__title profile-edit-goods__page-title">
 		Изменение данных о товарах
 	</h1>
@@ -108,11 +108,11 @@
 			<h2 class="profile-edit-goods__title">Выберите запчасть:</h2>
 
 			<select name="selected-part" id="selected-part" class="profile-edit-goods__select">
-				<option disabled selected>Выберите запчасть</option>
-				<option val="">Аккумулятор MacBook Air B11309</option>
-				<option val="">Аккумулятор MacBook Air B11309</option>
-				<option val="">Аккумулятор MacBook Air B11309</option>
-				<option val="">Аккумулятор MacBook Air B11309</option>
+				<option val="none" disabled selected>Выберите запчасть</option>
+				<option val="1">Аккумулятор MacBook Air B11309</option>
+				<option val="2">Аккумулятор MacBook Air B11309</option>
+				<option val="3">Аккумулятор MacBook Air B11309</option>
+				<option val="4">Аккумулятор MacBook Air B11309</option>
 			</select>
 				<!--<div class="profile-edit-goods__select">
 					<div class="profile-edit-goods__select-input-wrap">
@@ -157,17 +157,17 @@
 				</div>
 			</div>
 
-			<div class="profile-edit-goods__row-inputs profile-edit-goods__row-edit-names">
-				<div class="profile-edit-goods__input-wrap">
-					<label for="old-name" class="form__label profile-edit-goods__label">Текущее название</label>
-					<textarea id="old-name" rows="5" type="text" class="form__textarea profile-edit-goods__input" disabled>Аккумулятор MacBook Air B11922 5000mAh новый</textarea>
-				</div>
-				<div class="profile-edit-goods__input-wrap">
-					<label for="new-name" class="form__label profile-edit-goods__label">Новое название</label>
-					<textarea id="new-name" rows="5" type="text" class="form__textarea profile-edit-goods__input"
-							  placeholder="Введите новое название"></textarea>
-				</div>
-			</div>
+<!--			<div class="profile-edit-goods__row-inputs profile-edit-goods__row-edit-names">-->
+<!--				<div class="profile-edit-goods__input-wrap">-->
+<!--					<label for="old-name" class="form__label profile-edit-goods__label">Текущее название</label>-->
+<!--					<textarea id="old-name" rows="5" type="text" class="form__textarea profile-edit-goods__input" disabled>Аккумулятор MacBook Air B11922 5000mAh новый</textarea>-->
+<!--				</div>-->
+<!--				<div class="profile-edit-goods__input-wrap">-->
+<!--					<label for="new-name" class="form__label profile-edit-goods__label">Новое название</label>-->
+<!--					<textarea id="new-name" rows="5" type="text" class="form__textarea profile-edit-goods__input"-->
+<!--							  placeholder="Введите новое название"></textarea>-->
+<!--				</div>-->
+<!--			</div>-->
 		</div>
 
 		<button type="submit" class="form__submit profile-edit-goods__form-button">Обновить данные</button>

@@ -39,9 +39,14 @@
     height: fit-content;
     cursor: pointer;
     filter: hue-rotate(0);
-    transition: .3s;
+    transition: .3s, 0s border, 0s padding;
     background: rgb(115,115,115);
     background: linear-gradient(300deg, rgba(115,115,115,1) 0%, rgba(222,222,222,1) 100%);
+    &-active {
+      padding: 13px;
+      background: #ffffff;
+      border: 2px solid $inactive-color;
+    }
     &:hover {
       filter: hue-rotate(30deg);
     }

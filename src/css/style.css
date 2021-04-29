@@ -39,7 +39,7 @@ button {
   max-width: 200px; }
 
 .amount-input {
-  padding: 5px 10px;
+  padding: 5px 5px 5px 10px;
   width: 31px;
   height: 40px;
   border: 1px solid #c4c4c4;
@@ -420,9 +420,13 @@ button {
     height: fit-content;
     cursor: pointer;
     filter: hue-rotate(0);
-    transition: .3s;
+    transition: .3s, 0s border, 0s padding;
     background: #737373;
     background: linear-gradient(300deg, #737373 0%, #dedede 100%); }
+    .tile_small-active {
+      padding: 13px;
+      background: #ffffff;
+      border: 2px solid #e1e1e1; }
     .tile_small:hover {
       filter: hue-rotate(30deg); }
   .tile__bg {
@@ -465,18 +469,38 @@ button {
   .category-devices .tile[data-device="macbook"] {
     background: #b440ec;
     background: linear-gradient(117deg, #b440ec 0%, #e031df 100%); }
+  .category-devices .tile_small-active[data-device="macbook"] {
+    padding: 13px;
+    background: #ffffff;
+    border: 2px solid #b440ec; }
   .category-devices .tile[data-device="imac"] {
     background: #3fcf45;
     background: linear-gradient(117deg, #3fcf45 0%, #a5ff15 100%); }
+  .category-devices .tile_small-active[data-device="imac"] {
+    padding: 13px;
+    background: #ffffff;
+    border: 2px solid #3fcf45; }
   .category-devices .tile[data-device="iphone"] {
     background: #3f57cf;
     background: linear-gradient(117deg, #3f57cf 0%, #15bfff 100%); }
+  .category-devices .tile_small-active[data-device="iphone"] {
+    padding: 13px;
+    background: #ffffff;
+    border: 2px solid #3f57cf; }
   .category-devices .tile[data-device="ipad"] {
     background: #cf923f;
     background: linear-gradient(117deg, #cf923f 0%, #ffff15 100%); }
+  .category-devices .tile_small-active[data-device="ipad"] {
+    padding: 13px;
+    background: #ffffff;
+    border: 2px solid #cf923f; }
   .category-devices .tile[data-device="apple-watch"] {
     background: #be883e;
     background: linear-gradient(117deg, #be883e 0%, #cb1595 100%); }
+  .category-devices .tile_small-active[data-device="apple-watch"] {
+    padding: 13px;
+    background: #ffffff;
+    border: 2px solid #be883e; }
 
 .category-parts {
   margin-bottom: 40px;

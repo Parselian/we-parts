@@ -26,4 +26,30 @@ $(window).on('load', function() {
         $(this).toggleClass('header__contacts-item_active')
         $(this).find('.header__contacts-popup').toggleClass('header__contacts-popup_open')
     })
+
+
+    /*-------------- PROFILE EDIT GOODS PAGE FUNCS ---------------*/
+    $(document).on('click', function(e) {
+        const target = e.target;
+
+        const toggleTiles = (parentSelector, hiddenInputId) => {
+            if (target.closest('.tile') && target.closest(parentSelector)) {
+                $('select[name="selected-part"]').prop('selectedIndex', 0);
+                $(`${parentSelector} .tile`).removeClass('tile_small-active');
+                $(target).closest('.tile').addClass('tile_small-active');
+
+                $(hiddenInputId).attr('value', $(target).closest('.tile').attr('data-device'));
+            }
+        }
+
+        toggleTiles('.category-devices', '#selected-device');
+        toggleTiles('.category-parts', '#selected-part');
+    })
+
+    $('#selected-part').on('change', function(e) {
+        const selectedDeviceVal = $('#selected-device').val(),
+            selectedPartVal = $('#selected-part').val();
+
+
+    })
 });
