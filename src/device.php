@@ -103,6 +103,7 @@
 
 
 
+
 			for ($i = 0; $i < mysqli_num_rows($parts_arr); ++$i)
 			{
 				$part_data = mysqli_fetch_row($parts_arr);
