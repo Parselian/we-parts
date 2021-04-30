@@ -1,252 +1,180 @@
-<? require_once(__DIR__ . '/modules/header.php') ?>
+<?
+	require_once(__DIR__ . '/modules/header.php');
+	print_r($_GET);
+	$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+	$device_group_id = $_GET['device_group_id'];
+?>
 
 <main class="container">
-
 	<? require_once(__DIR__ . '/modules/breadcrumbs.php') ?>
 
 	<div class="category-parts__mobile">
 		<button class="category-parts__mobile-btn">Категории</button>
 
 		<ul class="category-parts__mobile-list">
-			<li class="category-parts__mobile-list-item">
-				<a href="/device" class="category-parts__mobile-list-link">Охлаждение</a>
-			</li>
-			<li class="category-parts__mobile-list-item">
-				<a href="/device" class="category-parts__mobile-list-link">Аккумулятор</a>
-			</li>
-			<li class="category-parts__mobile-list-item">
-				<a href="/device" class="category-parts__mobile-list-link">Дисплей</a>
-			</li>
-			<li class="category-parts__mobile-list-item">
-				<a href="/device" class="category-parts__mobile-list-link">Плата</a>
-			</li>
-			<li class="category-parts__mobile-list-item">
-				<a href="/device" class="category-parts__mobile-list-link">Клавиатура</a>
-			</li>
-			<li class="category-parts__mobile-list-item">
-				<a href="/device" class="category-parts__mobile-list-link">Зарядное ус-во</a>
-			</li>
+			<?
+				$link = mysqli_connect($host, $username, $password, $database)
+					or die('Error! ' . mysqli_error($link));
+				$query = "SELECT * FROM PARTS_GROUP WHERE DEVICE_GROUP_ID = " . $_GET['device_group_id'] . "";
+				$result = mysqli_query($link, $query)
+					or die('Error! ' . mysqli_error($link));
+
+				for ($i = 0; $i < mysqli_num_rows($result); ++$i)
+				{
+					$part_group = mysqli_fetch_row($result);
+					/*
+					  * $part_group[0] - part_group_id
+					  * $part_group[1] - part_group_url
+					  * $part_group[2] - device_group_id
+					  * $part_group[3] - part_group_name
+					*/
+
+					?>
+						<li class="category-parts__mobile-list-item">
+							<button data-part-group="<?= $part_group[1]?>" class="category-parts__mobile-list-link">
+								<?= $part_group[3]?>
+							</button>
+						</li>
+					<?
+				}
+
+				mysqli_close($link);
+			?>
 		</ul>
 	</div>
 
 	<section class="category-parts">
-		<div class="tile tile_small" data-device="accumulator">
-			<svg class="tile__icon">
-				<use xlink:href="./images/stack/sprite.svg#accumulator"></use>
-			</svg>
-			<div class="tile__text">Аккумулятор</div>
-		</div>
+		<?
+			$link = mysqli_connect($host, $username, $password, $database)
+				or die('Error! ' . mysqli_error($link));
+			$query = "SELECT * FROM PARTS_GROUP WHERE DEVICE_GROUP_ID = " . $_GET['device_group_id'] . "";
+			$result = mysqli_query($link, $query)
+				or die('Error! ' . mysqli_error($link));
 
-		<div class="tile tile_small" data-device="display">
-			<svg class="tile__icon">
-				<use xlink:href="./images/stack/sprite.svg#display-frame"></use>
-			</svg>
-			<div class="tile__text">Дисплей</div>
-		</div>
+			for ($i = 0; $i < mysqli_num_rows($result); ++$i)
+			{
+				$part_group_desc = mysqli_fetch_row($result);
 
-		<div class="tile tile_small" data-device="cooling">
-			<svg class="tile__icon">
-				<use xlink:href="./images/stack/sprite.svg#cooling-system"></use>
-			</svg>
-			<div class="tile__text">Охлаждение</div>
-		</div>
+				/*
+				  * $part_group[0] - part_group_id
+				  * $part_group[1] - part_group_url
+				  * $part_group[2] - device_group_id
+				  * $part_group[3] - part_group_name
+				*/
 
-		<div class="tile tile_small" data-device="motherboard">
-			<svg class="tile__icon">
-				<use xlink:href="./images/stack/sprite.svg#motherboard"></use>
-			</svg>
-			<div class="tile__text">Плата</div>
-		</div>
-
-		<div class="tile tile_small" data-device="keyboard">
-			<svg class="tile__icon">
-				<use xlink:href="./images/stack/sprite.svg#keyboard"></use>
-			</svg>
-			<div class="tile__text">Клавиатура</div>
-		</div>
-
-		<div class="tile tile_small" data-device="charger">
-			<svg class="tile__icon">
-				<use xlink:href="./images/stack/sprite.svg#charger"></use>
-			</svg>
-			<div class="tile__text">зарядные ус-ва</div>
-		</div>
+				?>
+					<button class="tile tile_small" data-device="<?= $part_group_desc[1]?>">
+						<svg class="tile__icon">
+							<use xlink:href="/images/stack/sprite.svg#<?= $part_group_desc[1]?>"></use>
+						</svg>
+						<span class="tile__text"><?= $part_group_desc[3]?></span>
+					</button>
+				<?
+			}
+		?>
 	</section>
 
 	<div class="catalog">
 		<div class="catalog__cards">
-			<div class="catalog__card">
-				<picture>
-					<img src="./images/keyboard-macbook-a1181.jpg" alt="" class="catalog__card-img">
-					<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
-				</picture>
+		<?
+			$link = mysqli_connect($host, $username, $password, $database)
+				or die('Error! ' . mysqli_error($link));
+			/*------------ GETTING ALL PARTS DATA FROM THE PARTS TABLE -----------------------*/
+			$get_parts_arr = "SELECT * FROM PARTS";
+			$parts_arr = mysqli_query($link, $get_parts_arr)
+				or die('Error! ' . mysqli_error($link));
+			/*------------------------------- END --------------------------------------------*/
 
-				<a href="/product-page" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
-					белая</a>
+			/*------------ GETTING ALL PARTS DATA FROM THE PARTS TABLE -----------------------*/
+			$get_cat_ids = "SELECT PARTS_GROUP_ID FROM PARTS_GROUP WHERE DEVICE_GROUP_ID = '$device_group_id'";
+			$cat_ids_arr = mysqli_query($link, $get_cat_ids)
+				or die('Error! ' . mysqli_error($link));
+			/*------------------------------- END --------------------------------------------*/
 
-				<div class="catalog__card-row">
-					<div class="catalog__card-col">
-						<span class="catalog__card-price">2 990 Р</span>
-						<span class="catalog__card-wholesale">Опт 2 270 Р</span>
-					</div>
 
-					<div class="catalog__card-col catalog__card-availability">
-						Доступно: <span class="catalog__card-availability-stock">1 шт.</span>
-					</div>
-				</div>
+			/*
+			 * НУЖНО СДЕЛАТЬ ПРОВЕРКУ НА ТО, ЗАЛОГИНЕН ЛИ ПОЛЬЗОВАТЕЛЬ, И ЕСЛИ ДА - ПОДТЯНУТЬ ЦЕНЫ, СОГЛАСНО ЕГО ID,
+			 * ЕСЛИ ЖЕ НЕТ - ВЗЯТЬ ЦЕНЫ ПОЛЬЗОВАТЕЛЯ ПОД ID РАВНЫМ 0
+			 * */
 
-				<div class="catalog__card-btns">
-				<!--<input type="number" value="1" class="catalog__card-quantity">-->
-					<div class="amount-input__wrap catalog__card-quantity">
-						<input type="text" value="1" class="amount-input">
-						<span class="amount-input__inc">+</span>
-						<span class="amount-input__dec">-</span>
-					</div>
+			$get_part_prices = "SELECT * FROM PARTS_PRICES WHERE ENGINEER_ID = 0";
+			$part_prices_arr = mysqli_query($link, $get_part_prices);
 
-					<button class="catalog__card-btn catalog__card-btn_cart">
-						<svg class="catalog__card-btn-icon">
-							<use xlink:href="./images/stack/sprite.svg#shopping-cart"></use>
-						</svg>
-						<span>Купить</span>
-					</button>
 
-					<a href="#" class="catalog__card-btn catalog__card-btn_now">
-						<svg class="catalog__card-btn-icon">
-							<use xlink:href="./images/stack/sprite.svg#clicking"></use>
-						</svg>
-						<span>Купить в 1 клик</span>
-					</a>
-				</div>
-			</div>
-			<div class="catalog__card">
-				<picture>
-					<img src="./images/keyboard-macbook-a1181.jpg" alt="" class="catalog__card-img">
-					<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
-				</picture>
 
-				<a href="/product-page" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
-					белая</a>
+			for ($i = 0; $i < mysqli_num_rows($parts_arr); ++$i)
+			{
+				$part_data = mysqli_fetch_row($parts_arr);
+				/*
+				 * part_group[0] - PART_ID
+				 * part_group[1] - PART_URL
+				 * part_group[2] - PART_NAME
+				 * part_group[3] - PARTS_GROUP_ID
+				 * part_group[4] - PART_DESCRIPTION
+				 * */
 
-				<div class="catalog__card-row">
-					<div class="catalog__card-col">
-						<span class="catalog__card-price">2 990 Р</span>
-						<span class="catalog__card-wholesale">Опт 2 270 Р</span>
-					</div>
+				for ($j = 0; $j < mysqli_num_rows($part_prices_arr); ++$j)
+				{
+					$part_price = mysqli_fetch_row($part_prices_arr);
+					/*
+					 * part_price[0] - ID (PRIMARY_KEY)
+					 * part_price[1] - PARTS_PRICE
+					 * part_price[2] - PARTS_QUANTITY
+					 * part_price[3] - PARTS_PRICES_ID
+					 * part_price[4] - ENGINEER_ID
+					 * */
 
-					<div class="catalog__card-col catalog__card-availability">
-						Доступно: <span class="catalog__card-availability-stock">1 шт.</span>
-					</div>
-				</div>
+					if ($part_price[3] == $part_data[0]) {
+						?>
+							<div class="catalog__card">
+								<picture>
+									<img src="/images/<?= $part_data[1]?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
+									<source srcset="/images/webp/<?= $part_data[1]?>.webp" type="image/webp">
+								</picture>
 
-				<div class="catalog__card-btns">
-				<!--<input type="number" value="1" class="catalog__card-quantity">-->
-					<div class="amount-input__wrap catalog__card-quantity">
-						<input type="text" value="1" class="amount-input">
-						<span class="amount-input__inc">+</span>
-						<span class="amount-input__dec">-</span>
-					</div>
+								<a href="<?= $url . '/' . $part_data[1]?>" class="catalog__card-title"><?= $part_data[2]?></a>
 
-					<button class="catalog__card-btn catalog__card-btn_cart">
-						<svg class="catalog__card-btn-icon">
-							<use xlink:href="./images/stack/sprite.svg#shopping-cart"></use>
-						</svg>
-						<span>Купить</span>
-					</button>
+								<div class="catalog__card-row">
+									<div class="catalog__card-col">
+										<span class="catalog__card-price"><?= $part_price[1]?> &#8381;</span>
+										<span class="catalog__card-wholesale">Опт <?= $part_price[1] ?> &#8381;</span>
+									</div>
 
-					<a href="#" class="catalog__card-btn catalog__card-btn_now">
-						<svg class="catalog__card-btn-icon">
-							<use xlink:href="./images/stack/sprite.svg#clicking"></use>
-						</svg>
-						<span>Купить в 1 клик</span>
-					</a>
-				</div>
-			</div>
-			<div class="catalog__card">
-				<picture>
-					<img src="./images/keyboard-macbook-a1181.jpg" alt="" class="catalog__card-img">
-					<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
-				</picture>
+									<div class="catalog__card-col catalog__card-availability">
+										Доступно: <span class="catalog__card-availability-stock"><?= $part_price[2]?> шт.</span>
+									</div>
+								</div>
 
-				<a href="/product-page" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
-					белая</a>
+								<div class="catalog__card-btns">
+								<!--<input type="number" value="1" class="catalog__card-quantity">-->
+									<div class="amount-input__wrap catalog__card-quantity">
+										<input type="text" value="1" class="amount-input">
+										<span class="amount-input__inc">+</span>
+										<span class="amount-input__dec">-</span>
+									</div>
 
-				<div class="catalog__card-row">
-					<div class="catalog__card-col">
-						<span class="catalog__card-price">2 990 Р</span>
-						<span class="catalog__card-wholesale">Опт 2 270 Р</span>
-					</div>
+									<button class="catalog__card-btn catalog__card-btn_cart">
+										<svg class="catalog__card-btn-icon">
+											<use xlink:href="/images/stack/sprite.svg#shopping-cart"></use>
+										</svg>
+										<span>Купить</span>
+									</button>
 
-					<div class="catalog__card-col catalog__card-availability">
-						Доступно: <span class="catalog__card-availability-stock">1 шт.</span>
-					</div>
-				</div>
-
-				<div class="catalog__card-btns">
-					<!--<input type="number" value="1" class="catalog__card-quantity">-->
-					<div class="amount-input__wrap catalog__card-quantity">
-						<input type="text" value="1" class="amount-input">
-						<span class="amount-input__inc">+</span>
-						<span class="amount-input__dec">-</span>
-					</div>
-
-					<button class="catalog__card-btn catalog__card-btn_cart">
-						<svg class="catalog__card-btn-icon">
-							<use xlink:href="./images/stack/sprite.svg#shopping-cart"></use>
-						</svg>
-						<span>Купить</span>
-					</button>
-
-					<a href="#" class="catalog__card-btn catalog__card-btn_now">
-						<svg class="catalog__card-btn-icon">
-							<use xlink:href="./images/stack/sprite.svg#clicking"></use>
-						</svg>
-						<span>Купить в 1 клик</span>
-					</a>
-				</div>
-			</div>
-			<div class="catalog__card">
-				<picture>
-					<img src="./images/keyboard-macbook-a1181.jpg" alt="" class="catalog__card-img">
-					<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
-				</picture>
-
-				<a href="/product-page" class="catalog__card-title">Клавиатура MacBook 13 a1181 белая лавиатура MacBook 13 a1181
-					белая</a>
-
-				<div class="catalog__card-row">
-					<div class="catalog__card-col">
-						<span class="catalog__card-price">2 990 Р</span>
-						<span class="catalog__card-wholesale">Опт 2 270 Р</span>
-					</div>
-
-					<div class="catalog__card-col catalog__card-availability">
-						Доступно: <span class="catalog__card-availability-stock">1 шт.</span>
-					</div>
-				</div>
-
-				<div class="catalog__card-btns">
-				<!--<input type="number" value="1" class="catalog__card-quantity">-->
-					<div class="amount-input__wrap catalog__card-quantity">
-						<input type="text" value="1" class="amount-input">
-						<span class="amount-input__inc">+</span>
-						<span class="amount-input__dec">-</span>
-					</div>
-
-					<button class="catalog__card-btn catalog__card-btn_cart">
-						<svg class="catalog__card-btn-icon">
-							<use xlink:href="./images/stack/sprite.svg#shopping-cart"></use>
-						</svg>
-						<span>Купить</span>
-					</button>
-
-					<a href="#" class="catalog__card-btn catalog__card-btn_now">
-						<svg class="catalog__card-btn-icon">
-							<use xlink:href="./images/stack/sprite.svg#clicking"></use>
-						</svg>
-						<span>Купить в 1 клик</span>
-					</a>
-				</div>
-			</div>
+									<a href="#" class="catalog__card-btn catalog__card-btn_now">
+										<svg class="catalog__card-btn-icon">
+											<use xlink:href="/images/stack/sprite.svg#clicking"></use>
+										</svg>
+										<span>Купить в 1 клик</span>
+									</a>
+								</div>
+							</div>
+						<?
+						break;
+					}
+				}
+			}
+		?>
 		</div>
 
 		<div class="catalog__controls">

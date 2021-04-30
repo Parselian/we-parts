@@ -1,4 +1,15 @@
-<? require_once(__DIR__ . '/modules/header.php') ?>
+<?
+	require_once(__DIR__ . '/modules/header.php');
+
+	$part_data = $_GET['selected_part_data'];
+	/*
+	 * $part_data[0] - PART_ID
+	 * $part_data[1] - PART_URL
+	 * $part_data[2] - PART_NAME
+	 * $part_data[3] - PARTS_GROUP_ID
+	 * $part_data[4] - PART_DESCRIPTION
+	 * */
+?>
 
 <main class="container">
     <? require_once(__DIR__ . '/modules/breadcrumbs.php') ?>
@@ -7,14 +18,14 @@
         <div class="product__row product__general">
             <div class="product__col product__img-wrap">
                 <picture>
-                    <source srcset="./images/webp/keyboard-macbook-a1181.webp" type="image/webp">
-                    <img src="./images/keyboard-macbook-a1181.jpg" alt="Клавиатура" class="product__img">
+                    <source srcset="/images/webp/<?= $part_data[1]?>.webp" type="image/webp">
+                    <img src="/images/<?= $part_data[1]?>.jpg" alt="<?= $part_data[2]?>" class="product__img">
                 </picture>
             </div>
 
 			<div class="product__col product__form-wrap">
 				<form action="" method="POST" class="product__form">
-					<div class="product__form-vendor">Артикул: 000708</div>
+					<div class="product__form-vendor">Артикул: <?= $part_data[1]?></div>
 
 					<div class="product__form-row">
 						<div class="product__form-col">
@@ -30,7 +41,7 @@
 
 							<button class="product__form-btn product__form-btn-cart">
 								<svg class="product__form-btn-icon">
-									<use xlink:href="./images/stack/sprite.svg#shopping-cart"></use>
+									<use xlink:href="/images/stack/sprite.svg#shopping-cart"></use>
 									<span>В корзину</span>
 								</svg>
 							</button>
@@ -52,7 +63,7 @@
 
 								<div class="product__form-availability-place">
 									<svg class="product__form-availability-place-icon">
-										<use xlink:href="./images/stack/sprite.svg#delivery-truck"></use>
+										<use xlink:href="/images/stack/sprite.svg#delivery-truck"></use>
 									</svg>
 									<span class="product__form-availability-place-name">Склад</span>
 									<span class="product__form-availability-place-stock">6</span>
@@ -102,23 +113,7 @@
 
 			<div class="product__description">
 				<h2 class="title product__about-title">Описание товара</h2>
-				<p class="text product__description-text">
-					Качество ААА - деталь, произведенная фабрикой без нарушения технологии производства, но не все
-					оборудование и/или материалы соответствуют стандартам Apple. На практике это может означать, что
-					часть производственного цикла не автоматизирована, используется материалы из более дешевого
-					материала или более низкие заводские показатели. Таакой товар не будет иметь физических огрехов,
-					но будет заметно уступать по характеристикам ОЕМ и оригинальным деталям.
-					Новая аккумуляторная батарея А1181 для белого корпуса
-				</p>
-				<p class="text product__description-text">
-					Батарея ноутбука ссчитается расходным материалом. Если вы часто пользуетесь макбуком без провода,
-					на аккумулятор идет большая нагрузка; со временем он начинает разряжаться быстрее, это может
-					доставлять большие неудобства. Как выбрать хороший аккумулятор, чтобы он проработал также долго
-					как и родной? Энергоемкость самый важный показатель, поэтому в нашем магазине ведется строгий
-					контроль качества продукции.
-					Обращаем внимание, данный ремонот вы можете выполнить сами. Слева от аккумулятора находится
-					фиксатор, который нужно повернуть, чтобы вынуть старую батарею. Это можно сделать обычной монетой.
-				</p>
+				<?= $part_data[4]?>
 			</div>
 		</div>
 	</div>

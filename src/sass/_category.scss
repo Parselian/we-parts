@@ -43,11 +43,11 @@
         background: #ffffff;
         border: 2px solid rgb(207,146,63);
       }
-      &[data-device="apple-watch"] {
+      &[data-device="watch"] {
         background: rgb(190,136,62);
         background: linear-gradient(117deg, rgba(190,136,62,1) 0%, rgba(203,21,149,1) 100%);
       }
-      &_small-active[data-device="apple-watch"] {
+      &_small-active[data-device="watch"] {
         padding: 13px;
         background: #ffffff;
         border: 2px solid rgb(190,136,62);

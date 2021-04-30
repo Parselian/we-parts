@@ -494,10 +494,10 @@ button {
     padding: 13px;
     background: #ffffff;
     border: 2px solid #cf923f; }
-  .category-devices .tile[data-device="apple-watch"] {
+  .category-devices .tile[data-device="watch"] {
     background: #be883e;
     background: linear-gradient(117deg, #be883e 0%, #cb1595 100%); }
-  .category-devices .tile_small-active[data-device="apple-watch"] {
+  .category-devices .tile_small-active[data-device="watch"] {
     padding: 13px;
     background: #ffffff;
     border: 2px solid #be883e; }
@@ -793,6 +793,7 @@ button {
   list-style: decimal !important; }
 
 .catalog__card {
+  margin-bottom: 1%;
   padding: 10px;
   width: 24.23%;
   min-width: 220px;

@@ -2,7 +2,9 @@
      ini_set('error_reporting', E_ALL);
 	 ini_set('display_errors', 1);
 	 ini_set('display_startup_errors', 1);
+
 	require_once(__DIR__ . '/../configs/config.php');
+	require_once(__DIR__ . '/../configs/db-cfg.php');
 ?>
 
 <!doctype html>
@@ -12,10 +14,10 @@
 	<meta name="viewport"
 		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!--    <link rel="stylesheet" href="./css/bootstrap-grid.min.css"> -->
-	<link rel="stylesheet" href="./css/reset.css">
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/fonts.css">
+	<!--    <link rel="stylesheet" href="/css/bootstrap-grid.min.css"> -->
+	<link rel="stylesheet" href="/css/reset.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/fonts.css">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
 		  rel="stylesheet">
@@ -30,31 +32,31 @@
 			<div class="header__top">
 				<a href="/">
 					<picture>
-						<source srcset="./images/webp/logo-white.webp" type="image/webp">
-						<img src="./images/logo-white.png" alt="лого" class="logo header__logo header__logo_mobile">
+						<source srcset="/images/webp/logo-white.webp" type="image/webp">
+						<img src="/images/logo-white.png" alt="лого" class="logo header__logo header__logo_mobile">
 					</picture>
 				</a>
 				<nav class="header__top-list header__top-list_mobile">
 					<a href="tel:<?=$phone_link?>" class="header__top-list-item">
 						<svg class="header__top-list-icon">
-							<use xlink:href="./images/stack/sprite.svg#phone-call"></use>
+							<use xlink:href="/images/stack/sprite.svg#phone-call"></use>
 						</svg>
 					</a>
 					<a href="/kontakty" class="header__top-list-item">
 						<svg class="header__top-list-icon">
-							<use xlink:href="./images/stack/sprite.svg#placeholder"></use>
+							<use xlink:href="/images/stack/sprite.svg#placeholder"></use>
 						</svg>
 					</a>
 					<a href="/sign-in" class="header__top-list-item">
 						<svg class="header__top-list-icon">
-							<use xlink:href="./images/stack/sprite.svg#user"></use>
+							<use xlink:href="/images/stack/sprite.svg#user"></use>
 						</svg>
 					</a>
-					<a href="#" class="header__top-list-item">
+					<!--<a href="#" class="header__top-list-item">
 						<svg class="header__top-list-icon">
-							<use xlink:href="./images/stack/sprite.svg#shopping-cart"></use>
+							<use xlink:href="/images/stack/sprite.svg#shopping-cart"></use>
 						</svg>
-					</a>
+					</a>-->
 				</nav>
 
 				<nav class="header__top-list header__top-list_desktop">
@@ -74,8 +76,8 @@
 					</label>
 					<a href="/">
 						<picture>
-							<source srcset="./images/webp/logo-white.webp" type="image/webp">
-							<img src="./images/logo-white.png" alt="лого" class="logo header__logo header__logo_desktop">
+							<source srcset="/images/webp/logo-white.webp" type="image/webp">
+							<img src="/images/logo-white.png" alt="лого" class="logo header__logo header__logo_desktop">
 						</picture>
 					</a>
 				</div>
@@ -83,7 +85,7 @@
 				<a href="tel: <?= $phone_link?>" class="header__main-search header__search-phone_mobile">
 					<?= $phone_format?>
 					<svg class="header__main-search-icon">
-						<use xlink:href="./images/stack/sprite.svg#phone-call"></use>
+						<use xlink:href="/images/stack/sprite.svg#phone-call"></use>
 					</svg>
 				</a>
 
@@ -91,14 +93,14 @@
 					<li class="header__contacts-item">
 						<a href="tel:<?= $phone_link?>" class="header__contacts-link">
 							<svg class="header__contacts-item-icon">
-								<use xlink:href="./images/stack/sprite.svg#phone-call"></use>
+								<use xlink:href="/images/stack/sprite.svg#phone-call"></use>
 							</svg>
 							<span class="header__contacts-item-text"><?= $phone_format;?></span>
 						</a>
 					</li>
 					<div class="header__contacts-item header__contacts-item">
 						<svg class="header__contacts-item-icon">
-							<use xlink:href="./images/stack/sprite.svg#user"></use>
+							<use xlink:href="/images/stack/sprite.svg#user"></use>
 						</svg>
 						<span class="header__contacts-item-text">Аккаунт</span>
 
@@ -113,12 +115,12 @@
 							</div>
 						</div>
 					</div>
-					<a href="/cart" class="header__contacts-item">
+					<!--<a href="/cart" class="header__contacts-item">
 						<svg class="header__contacts-item-icon">
-							<use xlink:href="./images/stack/sprite.svg#shopping-cart"></use>
+							<use xlink:href="/images/stack/sprite.svg#shopping-cart"></use>
 						</svg>
 						<span class="header__contacts-item-text">Корзина</span>
-					</a>
+					</a>-->
 				</nav>
 			</div>
 		</div>

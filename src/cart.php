@@ -19,8 +19,8 @@
 					<td>
 						<div class="cart__goods-item-label">Товар</div>
 						<picture>
-							<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="images/webp">
-							<img src="./images/keyboard-macbook-a1181.jpg" alt="" class="cart__goods-item-img">
+							<source srcset="images/webp/006621.webp" type="images/webp">
+							<img src="./images/006621.jpg" alt="" class="cart__goods-item-img">
 						</picture>
 					</td>
 					<td>
@@ -55,8 +55,8 @@
 					<td>
 						<div class="cart__goods-item-label">Товар</div>
 						<picture>
-							<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="images/webp">
-							<img src="./images/keyboard-macbook-a1181.jpg" alt="" class="cart__goods-item-img">
+							<source srcset="images/webp/006621.webp" type="images/webp">
+							<img src="./images/006621.jpg" alt="" class="cart__goods-item-img">
 						</picture>
 					</td>
 					<td>
@@ -91,8 +91,8 @@
 					<td>
 						<div class="cart__goods-item-label">Товар</div>
 						<picture>
-							<source srcset="./images/webp/keyboard-macbook-a1181.webp" type="images/webp">
-							<img src="./images/keyboard-macbook-a1181.jpg" alt="" class="cart__goods-item-img">
+							<source srcset="images/webp/006621.webp" type="images/webp">
+							<img src="./images/006621.jpg" alt="" class="cart__goods-item-img">
 						</picture>
 					</td>
 					<td>

@@ -5,7 +5,7 @@
                 Моя учетная запись
                 <div class="footer__col-title-icon-wrap">
                     <svg class="footer__col-title-icon">
-                        <use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
+                        <use xlink:href="/images/stack/sprite.svg#right-arrow"></use>
                     </svg>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 Магазин
                 <div class="footer__col-title-icon-wrap">
                     <svg class="footer__col-title-icon">
-                        <use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
+                        <use xlink:href="/images/stack/sprite.svg#right-arrow"></use>
                     </svg>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 Контакты
                 <div class="footer__col-title-icon-wrap">
                     <svg class="footer__col-title-icon">
-                        <use xlink:href="./images/stack/sprite.svg#right-arrow"></use>
+                        <use xlink:href="/images/stack/sprite.svg#right-arrow"></use>
                     </svg>
                 </div>
             </div>
@@ -106,4 +106,4 @@
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
-<script src="./configs/script.js"></script>
+<script src="/configs/script.js"></script>
