@@ -9,6 +9,19 @@
 	 * $part_data[3] - PARTS_GROUP_ID
 	 * $part_data[4] - PART_DESCRIPTION
 	 * */
+
+	$link = mysqli_connect($host, $username, $password, $database)
+		or die('Error!' . mysqli_error($link));
+	$get_part_price = "SELECT * FROM PARTS_PRICES WHERE PARTS_PRICES_ID = ".$part_data[0]."";
+	$part_price = mysqli_fetch_all(mysqli_query($link, $get_part_price))[0]
+		or die('Error! ' . mysqli_error($link));
+	/*
+	* part_price[0] - ID (PRIMARY_KEY)
+	* part_price[1] - PARTS_PRICE
+	* part_price[2] - PARTS_QUANTITY
+	* part_price[3] - PARTS_PRICES_ID
+	* part_price[4] - ENGINEER_ID
+	* */
 ?>
 
 <main class="container">
@@ -29,8 +42,8 @@
 
 					<div class="product__form-row">
 						<div class="product__form-col">
-							<div class="product__form-price">2 990 Р</div>
-							<div class="product__form-wholesale">Опт 2 840 Р</div>
+							<div class="product__form-price"><?= $part_price[1]?> &#8381;</div>
+							<div class="product__form-wholesale">Опт <?= $part_price[1]?> &#8381;</div>
 
 							<div class="amount-input__wrap">
 								<span class="amount-input__label">Кол-во:</span>
@@ -66,7 +79,7 @@
 										<use xlink:href="/images/stack/sprite.svg#delivery-truck"></use>
 									</svg>
 									<span class="product__form-availability-place-name">Склад</span>
-									<span class="product__form-availability-place-stock">6</span>
+									<span class="product__form-availability-place-stock"><?= $part_price[2]?></span>
 								</div>
 							</div>
 						</div>

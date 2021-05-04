@@ -1,6 +1,5 @@
 <?
 	require_once(__DIR__ . '/modules/header.php');
-	print_r($_GET);
 	$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 	$device_group_id = $_GET['device_group_id'];
@@ -61,17 +60,19 @@
 				  * $part_group[1] - part_group_url
 				  * $part_group[2] - device_group_id
 				  * $part_group[3] - part_group_name
+				  * $part_group[4] - part_group_icon_url
 				*/
 
 				?>
-					<button class="tile tile_small" data-device="<?= $part_group_desc[1]?>">
+					<button class="tile tile_small" data-device="<?= $part_group_desc[0]?>">
 						<svg class="tile__icon">
-							<use xlink:href="/images/stack/sprite.svg#<?= $part_group_desc[1]?>"></use>
+							<use xlink:href="/images/stack/sprite.svg#<?= $part_group_desc[4]?>"></use>
 						</svg>
 						<span class="tile__text"><?= $part_group_desc[3]?></span>
 					</button>
 				<?
 			}
+			mysqli_close($link);
 		?>
 	</section>
 
@@ -81,11 +82,6 @@
 			$link = mysqli_connect($host, $username, $password, $database)
 				or die('Error! ' . mysqli_error($link));
 
-			/*------------ GETTING ALL PARTS DATA FROM THE PARTS TABLE -----------------------*/
-//			$get_parts_arr = "SELECT * FROM PARTS";
-//			$parts_arr = mysqli_query($link, $get_parts_arr)
-//				or die('Error! ' . mysqli_error($link));
-			/*------------------------------- END --------------------------------------------*/
 
 			/*------------ GETTING ALL PARTS DATA FROM THE PARTS TABLE -----------------------*/
 			$get_cat_ids = "SELECT PARTS_GROUP_ID FROM PARTS_GROUP WHERE DEVICE_GROUP_ID = '$device_group_id'";
@@ -93,14 +89,6 @@
 				or die('Error! ' . mysqli_error($link));
 			/*------------------------------- END --------------------------------------------*/
 
-
-			/*
-			 * НУЖНО СДЕЛАТЬ ПРОВЕРКУ НА ТО, ЗАЛОГИНЕН ЛИ ПОЛЬЗОВАТЕЛЬ, И ЕСЛИ ДА - ПОДТЯНУТЬ ЦЕНЫ, СОГЛАСНО ЕГО ID,
-			 * ЕСЛИ ЖЕ НЕТ - ВЗЯТЬ ЦЕНЫ ПОЛЬЗОВАТЕЛЯ ПОД ID РАВНЫМ 0
-			 * */
-
-			$get_part_prices = "SELECT * FROM PARTS_PRICES WHERE ENGINEER_ID = 0";
-			$part_prices_arr = mysqli_query($link, $get_part_prices);
 
 			for ($i = 0; $i < mysqli_num_rows($cat_ids_arr); ++$i)
 			{
@@ -122,10 +110,14 @@
 					 * part_data[4] - PART_DESCRIPTION
 					 * */
 
+
+					/*
+					 * НУЖНО СДЕЛАТЬ ПРОВЕРКУ НА ТО, ЗАЛОГИНЕН ЛИ ПОЛЬЗОВАТЕЛЬ, И ЕСЛИ ДА - ПОДТЯНУТЬ ЦЕНЫ, СОГЛАСНО ЕГО ID,
+					 * ЕСЛИ ЖЕ НЕТ - ВЗЯТЬ ЦЕНЫ ПОЛЬЗОВАТЕЛЯ ПОД ID РАВНЫМ 0
+					 * */
 					$get_part_price = "SELECT * FROM PARTS_PRICES WHERE PARTS_PRICES_ID = ".$part_data[0]."";
-					$part_price = mysqli_query($link, $get_part_price)
+					$part_price = mysqli_fetch_all(mysqli_query($link, $get_part_price))[0]
 					or die ('Error! ' . mysqli_error($link));
-					$part_price = mysqli_fetch_all($part_price)[0];
 					/*
 					 * part_price[0] - ID (PRIMARY_KEY)
 					 * part_price[1] - PARTS_PRICE
@@ -135,6 +127,7 @@
 					 * */
 					?>
 						<div class="catalog__card">
+							<input type="hidden" value="<?=$part_data[3]?>">
 							<picture>
 								<img src="/images/<?= $part_data[1]?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
 								<source srcset="/images/webp/<?= $part_data[1]?>.webp" type="image/webp">
@@ -161,14 +154,14 @@
 									<span class="amount-input__dec">-</span>
 								</div>
 
-								<button class="catalog__card-btn catalog__card-btn_cart">
+								<a href="<?= $url . '/' . $part_data[1]?>" class="catalog__card-btn catalog__card-btn_cart">
 									<svg class="catalog__card-btn-icon">
 										<use xlink:href="/images/stack/sprite.svg#shopping-cart"></use>
 									</svg>
 									<span>Купить</span>
-								</button>
+								</a>
 
-								<a href="#" class="catalog__card-btn catalog__card-btn_now">
+								<a href="<?= $url . '/' . $part_data[1]?>" class="catalog__card-btn catalog__card-btn_now">
 									<svg class="catalog__card-btn-icon">
 										<use xlink:href="/images/stack/sprite.svg#clicking"></use>
 									</svg>
@@ -179,6 +172,7 @@
 					<?
 				}
 			}
+			mysqli_close($link);
 		?>
 		</div>
 		<div class="catalog__controls">
