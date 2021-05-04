@@ -16,7 +16,7 @@
 			<?
 				$link = mysqli_connect($host, $username, $password, $database)
 					or die('Error! ' . mysqli_error($link));
-				$query = "SELECT * FROM PARTS_GROUP WHERE DEVICE_GROUP_ID = " . $_GET['device_group_id'] . "";
+				$query = "SELECT * FROM PARTS_GROUP WHERE DEVICE_GROUP_ID = " . $device_group_id. "";
 				$result = mysqli_query($link, $query)
 					or die('Error! ' . mysqli_error($link));
 
@@ -48,7 +48,7 @@
 		<?
 			$link = mysqli_connect($host, $username, $password, $database)
 				or die('Error! ' . mysqli_error($link));
-			$query = "SELECT * FROM PARTS_GROUP WHERE DEVICE_GROUP_ID = " . $_GET['device_group_id'] . "";
+			$query = "SELECT * FROM PARTS_GROUP WHERE DEVICE_GROUP_ID = " . $device_group_id . "";
 			$result = mysqli_query($link, $query)
 				or die('Error! ' . mysqli_error($link));
 
@@ -80,10 +80,11 @@
 		<?
 			$link = mysqli_connect($host, $username, $password, $database)
 				or die('Error! ' . mysqli_error($link));
+
 			/*------------ GETTING ALL PARTS DATA FROM THE PARTS TABLE -----------------------*/
-			$get_parts_arr = "SELECT * FROM PARTS";
-			$parts_arr = mysqli_query($link, $get_parts_arr)
-				or die('Error! ' . mysqli_error($link));
+//			$get_parts_arr = "SELECT * FROM PARTS";
+//			$parts_arr = mysqli_query($link, $get_parts_arr)
+//				or die('Error! ' . mysqli_error($link));
 			/*------------------------------- END --------------------------------------------*/
 
 			/*------------ GETTING ALL PARTS DATA FROM THE PARTS TABLE -----------------------*/
@@ -101,23 +102,30 @@
 			$get_part_prices = "SELECT * FROM PARTS_PRICES WHERE ENGINEER_ID = 0";
 			$part_prices_arr = mysqli_query($link, $get_part_prices);
 
-
-
-
-			for ($i = 0; $i < mysqli_num_rows($parts_arr); ++$i)
+			for ($i = 0; $i < mysqli_num_rows($cat_ids_arr); ++$i)
 			{
-				$part_data = mysqli_fetch_row($parts_arr);
-				/*
-				 * part_group[0] - PART_ID
-				 * part_group[1] - PART_URL
-				 * part_group[2] - PART_NAME
-				 * part_group[3] - PARTS_GROUP_ID
-				 * part_group[4] - PART_DESCRIPTION
-				 * */
+				$cat_id = mysqli_fetch_row($cat_ids_arr)[0];
 
-				for ($j = 0; $j < mysqli_num_rows($part_prices_arr); ++$j)
+				$get_parts_arr = "SELECT * FROM PARTS WHERE PARTS_GROUP_ID = ".$cat_id."";
+				$parts_arr = mysqli_query($link, $get_parts_arr)
+					or die ('Error! ' . mysqli_error($link));
+
+
+				for ($j = 0; $j < mysqli_num_rows($parts_arr); ++$j)
 				{
-					$part_price = mysqli_fetch_row($part_prices_arr);
+					$part_data = mysqli_fetch_row($parts_arr);
+					/*
+					 * part_data[0] - PART_ID
+					 * part_data[1] - PART_URL
+					 * part_data[2] - PART_NAME
+					 * part_data[3] - PARTS_GROUP_ID
+					 * part_data[4] - PART_DESCRIPTION
+					 * */
+
+					$get_part_price = "SELECT * FROM PARTS_PRICES WHERE PARTS_PRICES_ID = ".$part_data[0]."";
+					$part_price = mysqli_query($link, $get_part_price)
+					or die ('Error! ' . mysqli_error($link));
+					$part_price = mysqli_fetch_all($part_price)[0];
 					/*
 					 * part_price[0] - ID (PRIMARY_KEY)
 					 * part_price[1] - PARTS_PRICE
@@ -125,59 +133,54 @@
 					 * part_price[3] - PARTS_PRICES_ID
 					 * part_price[4] - ENGINEER_ID
 					 * */
+					?>
+						<div class="catalog__card">
+							<picture>
+								<img src="/images/<?= $part_data[1]?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
+								<source srcset="/images/webp/<?= $part_data[1]?>.webp" type="image/webp">
+							</picture>
 
-					if ($part_price[3] == $part_data[0]) {
-						?>
-							<div class="catalog__card">
-								<picture>
-									<img src="/images/<?= $part_data[1]?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
-									<source srcset="/images/webp/<?= $part_data[1]?>.webp" type="image/webp">
-								</picture>
+							<a href="<?= $url . '/' . $part_data[1]?>" class="catalog__card-title"><?= $part_data[2]?></a>
 
-								<a href="<?= $url . '/' . $part_data[1]?>" class="catalog__card-title"><?= $part_data[2]?></a>
-
-								<div class="catalog__card-row">
-									<div class="catalog__card-col">
-										<span class="catalog__card-price"><?= $part_price[1]?> &#8381;</span>
-										<span class="catalog__card-wholesale">Опт <?= $part_price[1] ?> &#8381;</span>
-									</div>
-
-									<div class="catalog__card-col catalog__card-availability">
-										Доступно: <span class="catalog__card-availability-stock"><?= $part_price[2]?> шт.</span>
-									</div>
+							<div class="catalog__card-row">
+								<div class="catalog__card-col">
+									<span class="catalog__card-price"><?= $part_price[1]?> &#8381;</span>
+									<span class="catalog__card-wholesale">Опт <?= $part_price[1] ?> &#8381;</span>
 								</div>
 
-								<div class="catalog__card-btns">
-								<!--<input type="number" value="1" class="catalog__card-quantity">-->
-									<div class="amount-input__wrap catalog__card-quantity">
-										<input type="text" value="1" class="amount-input">
-										<span class="amount-input__inc">+</span>
-										<span class="amount-input__dec">-</span>
-									</div>
-
-									<button class="catalog__card-btn catalog__card-btn_cart">
-										<svg class="catalog__card-btn-icon">
-											<use xlink:href="/images/stack/sprite.svg#shopping-cart"></use>
-										</svg>
-										<span>Купить</span>
-									</button>
-
-									<a href="#" class="catalog__card-btn catalog__card-btn_now">
-										<svg class="catalog__card-btn-icon">
-											<use xlink:href="/images/stack/sprite.svg#clicking"></use>
-										</svg>
-										<span>Купить в 1 клик</span>
-									</a>
+								<div class="catalog__card-col catalog__card-availability">
+									Доступно: <span class="catalog__card-availability-stock"><?= $part_price[2]?> шт.</span>
 								</div>
 							</div>
-						<?
-						break;
-					}
+
+							<div class="catalog__card-btns">
+							<!--<input type="number" value="1" class="catalog__card-quantity">-->
+								<div class="amount-input__wrap catalog__card-quantity">
+									<input type="text" value="1" class="amount-input">
+									<span class="amount-input__inc">+</span>
+									<span class="amount-input__dec">-</span>
+								</div>
+
+								<button class="catalog__card-btn catalog__card-btn_cart">
+									<svg class="catalog__card-btn-icon">
+										<use xlink:href="/images/stack/sprite.svg#shopping-cart"></use>
+									</svg>
+									<span>Купить</span>
+								</button>
+
+								<a href="#" class="catalog__card-btn catalog__card-btn_now">
+									<svg class="catalog__card-btn-icon">
+										<use xlink:href="/images/stack/sprite.svg#clicking"></use>
+									</svg>
+									<span>Купить в 1 клик</span>
+								</a>
+							</div>
+						</div>
+					<?
 				}
 			}
 		?>
 		</div>
-
 		<div class="catalog__controls">
 			<button class="catalog__more">
 				<div class="loader-icon loader-icon_active">
