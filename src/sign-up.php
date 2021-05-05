@@ -1,4 +1,7 @@
-<? require_once(__DIR__ . '/modules/header.php') ?>
+<?
+	require_once(__DIR__ . '/modules/header.php');
+?>
+
 
     <main class="container">
         <h1 class="inner-page__title">
@@ -6,31 +9,32 @@
         </h1>
 
         <div class="signup">
-            <form action="#" method="POST" class="signup__col signup__form">
+            <form action="/configs/register.php" method="POST" class="signup__col signup__form">
                 <div class="signup__form-row">
                     <div class="form__input-wrap signup__form-input-wrap">
                         <label for="user_name" class="form__label signup__form-input-label">Имя <span
                                 class="text_alert">*</span></label>
-                        <input id="user_name" type="text" class="form__input signup__form-input" placeholder="Ваше имя"
+                        <input id="user_name" type="text" name="engineer_name" class="form__input signup__form-input" placeholder="Ваше имя"
                                required>
                     </div>
                     <div class="form__input-wrap signup__form-input-wrap">
                         <label for="user_name" class="form__label signup__form-input-label">Фамилия <span
                                 class="text_alert">*</span></label>
-                        <input id="user_name" type="text" class="form__input signup__form-input" placeholder="Ваша фамилия"
+                        <input id="user_name" type="text" name="engineer_surname" class="form__input signup__form-input"
+							   placeholder="Ваша фамилия"
                                required>
                     </div>
                 </div>
                 <div class="form__input-wrap signup__form-input-wrap">
                     <label for="user_name" class="form__label signup__form-input-label">Телефон <span
                             class="text_alert">*</span></label>
-                    <input id="user_name" type="text" class="form__input signup__form-input" placeholder="Телефон"
+                    <input id="user_name" type="text" name="engineer_phone" class="form__input signup__form-input" placeholder="Телефон"
                            required>
                 </div>
                 <div class="form__input-wrap signup__form-input-wrap">
                     <label for="user_name" class="form__label signup__form-input-label">Email <span
                             class="text_alert">*</span></label>
-                    <input id="user_name" type="text" class="form__input signup__form-input" placeholder="Ваш e-mail"
+                    <input id="user_name" type="text" name="engineer_email" class="form__input signup__form-input" placeholder="Ваш e-mail"
                            required>
                 </div>
                 <div class="form__input-wrap signup__form-input-wrap">
@@ -41,7 +45,7 @@
                 <div class="form__input-wrap signup__form-input-wrap">
                     <label for="user_name" class="form__label signup__form-input-label">Подтверждение пароля <span
                             class="text_alert">*</span></label>
-                    <input id="user_name" type="text" class="form__input signup__form-input" required>
+                    <input id="user_name" type="text" name="engineer_password" class="form__input signup__form-input" required>
                 </div>
 
                 <div class="signup__form-footnote-wrap">

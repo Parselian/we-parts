@@ -6,16 +6,16 @@
         </h1>
 
         <div class="signup">
-            <form action="#" method="POST" class="signup__col signup__form">
+            <form action="/configs/login.php" method="POST" class="signup__col signup__form">
 				<div class="form__input-wrap signup__form-input-wrap">
                     <label for="user_email" class="form__label signup__form-input-label">E-mail <span
                             class="text_alert">*</span></label>
-                    <input id="user_email" type="text" class="form__input signup__form-input" required>
+                    <input id="user_email" type="text" name="engineer_email" class="form__input signup__form-input" required>
                 </div>
                 <div class="form__input-wrap signup__form-input-wrap">
                     <label for="user_password" class="form__label signup__form-input-label">Пароль <span
                             class="text_alert">*</span></label>
-                    <input id="user_password" type="text" class="form__input signup__form-input" required>
+                    <input id="user_password" type="text" name="engineer_password" class="form__input signup__form-input" required>
                 </div>
 
 				<div class="form__input-wrap signup__form-checkbox-wrap">
