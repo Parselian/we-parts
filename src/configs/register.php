@@ -8,6 +8,12 @@
     {
         $err = [];
 
+        $link = mysqli_connect($host, $username, $password, $database)
+            or die('Error!' . mysqli_error($link));
+        $get_last_engineer_id = mysqli_query($link, "SELECT ENGINEER_ID FROM ENGINEERS ORDER BY ENGINEER_ID DESC LIMIT 1")
+                or die('Error! ' . mysqli_error($link));
+        $last_engineer_id = mysqli_fetch_assoc($get_last_engineer_id)['ENGINEER_ID'] + 1;
+
 
         switch (true) {
             case !preg_match("/[а-яА-Я]+$/", $_POST['engineer_name']):
@@ -48,7 +54,7 @@
                 "EMAIL = '".$user_email."', " .
                 "PASSWORD = '".$pwd."', " .
                 "PHONE = '".$user_phone."', " .
-                "ENGINEER_ID = 5");
+                "ENGINEER_ID = '".$last_engineer_id."'");
             header("Location: /profile.php");
             exit();
         }

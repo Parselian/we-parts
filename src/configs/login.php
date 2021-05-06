@@ -1,4 +1,6 @@
 <?php
+    require_once(__DIR__.'/db-cfg.php');
+
     function generateHASH($length = 6) {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
         $hash = "";
@@ -18,7 +20,7 @@
     if (isset($_POST))
     {
         $query = mysqli_query($link, "SELECT ENGINEER_ID, PASSWORD FROM ENGINEERS " .
-            "WHERE EMAIL = '".mysqli_real_escape_string($_POST['engineer_email'])."' LIMIT 1")
+            "WHERE EMAIL = '".mysqli_real_escape_string($link, $_POST['engineer_email'])."' LIMIT 1")
             or die('Error! ' . mysqli_error($link));
         $data = mysqli_fetch_assoc($query);
 
@@ -26,17 +28,17 @@
         {
             $hash = md5(generateHASH(10));
 
-            mysqli_query($link, "UPDATE ENGINEERS SET ENGINEER_HASH = '".$hash."' WHERE ENGINEER_ID = '".$data['engineer_id']."'");
+            mysqli_query($link, "UPDATE ENGINEERS SET ENGINEER_HASH = '".$hash."' WHERE ENGINEER_ID = '".$data['ENGINEER_ID']."'")
                 or die('Error! ' . mysqli_error($link));
 
-            setcookie("id", $data['engineer_id'], time() + 60 * 60 * 24 * 30, "/");
-            setcookie("hash", $hash, time()+60*60*24*30, "/", null, null, true); // httponly !!!
+            setcookie("id", $data['ENGINEER_ID'], time() + 60 * 60 * 24 * 30, "/");
+            setcookie("hash", $hash, time()+60*60*24*30, "/", null, 1, true); // httponly !!!
 
-            header('Location: check.php');
+            header('Location: /configs/check-login.php');
             exit();
         }
-    }
-    else
+        else
         {
             print 'Введён неверный логин/пароль';
         }
+    }
