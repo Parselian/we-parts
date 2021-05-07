@@ -1,8 +1,10 @@
 <?
 	require_once(__DIR__ . '/modules/header.php');
-	$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 	$device_group_url = $_GET['device_group_url'];
+	$parts_group_url = $_GET['selected_part_category'];
+
+	$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/' . $device_group_url;
 ?>
 
 <main class="container">
@@ -31,9 +33,9 @@
 
 					?>
 						<li class="category-parts__mobile-list-item">
-							<button data-part-group="<?= $part_group[0]?>" class="category-parts__mobile-list-link">
+							<a href="<?=$url .'/'. $part_group[1]?>" class="category-parts__mobile-list-link">
 								<?= $part_group[3]?>
-							</button>
+							</a>
 						</li>
 					<?
 				}
@@ -82,20 +84,8 @@
 			$link = mysqli_connect($host, $username, $password, $database)
 				or die('Error! ' . mysqli_error($link));
 
-
-			/*------------ GETTING ALL PARTS DATA FROM THE PARTS TABLE -----------------------*/
-			$get_cat_ids = "SELECT PARTS_GROUP_URL FROM PARTS_GROUP WHERE DEVICE_GROUP_URL = '$device_group_url'";
-			$cat_urls_arr = mysqli_query($link, $get_cat_ids)
-				or die('Error! ' . mysqli_error($link));
-			/*------------------------------- END --------------------------------------------*/
-
 			$engineer_id = (empty($_COOKIE['id'])) ? 0 : $_COOKIE['id'];
-
-			for ($i = 0; $i < mysqli_num_rows($cat_urls_arr); ++$i)
-			{
-				$cat_url = mysqli_fetch_row($cat_urls_arr)[0];
-
-				$get_parts_arr = "SELECT * FROM PARTS WHERE PARTS_GROUP_URL = '".$cat_url."'";
+				$get_parts_arr = "SELECT * FROM PARTS WHERE PARTS_GROUP_URL = '".$parts_group_url."'";
 				$parts_arr = mysqli_query($link, $get_parts_arr)
 					or die ('Error! ' . mysqli_error($link));
 
@@ -142,8 +132,8 @@
 					 * */
 
 					/*----------------------------- КОНЕЦ ПРОВЕРКИ НА ЗАЛОГИНЕННОСТЬ -------------------------------------------*/
-						$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-						$url = $url . '/' . $part_data[4] . '/' . $part_data[1];
+
+					  $url = $url . '/' . $parts_group_url . '/' . $part_data[1];
 					?>
 						<div class="catalog__card">
 							<input type="hidden" value="<?=$part_data[3]?>">
@@ -152,7 +142,8 @@
 								<source srcset="/images/webp/<?= $part_data[1]?>.webp" type="image/webp">
 							</picture>
 
-							<a href="<?= $url ?>" class="catalog__card-title"><?= $part_data[2]?></a>
+							<a href="<?= $url?>" class="catalog__card-title"><?=
+								$part_data[2]?></a>
 
 							<div class="catalog__card-row">
 								<div class="catalog__card-col">
@@ -180,7 +171,7 @@
 									<span>Купить</span>
 								</a>
 
-								<a href="<?= $url ?>" class="catalog__card-btn catalog__card-btn_now">
+								<a href="<?= $url?>" class="catalog__card-btn catalog__card-btn_now">
 									<svg class="catalog__card-btn-icon">
 										<use xlink:href="/images/stack/sprite.svg#clicking"></use>
 									</svg>
@@ -189,7 +180,6 @@
 							</div>
 						</div>
 					<?
-				}
 			}
 			mysqli_close($link);
 		?>

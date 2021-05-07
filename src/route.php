@@ -1,10 +1,11 @@
 <?php
-
 require_once(__DIR__.'/configs/db-cfg.php');
+
+
 
 $_GET['url'] = strtr($_GET['url'],['.php'=>'']);
 $parsed_url = parse_url($_GET['url']);
-list($device_group, $part_url) = explode('/', $parsed_url['path']);
+list($device_group, $part_group, $part_url) = explode('/', $parsed_url['path']);
 
 
 
@@ -21,11 +22,17 @@ mysqli_close($link);
 
 
 
-if (mysqli_num_rows($device_group_id) > 0 && !isset($part_url))
+if (mysqli_num_rows($device_group_id) > 0 && !isset($part_group))
 {
-    $_GET['device_group_id'] = mysqli_fetch_row($device_group_id)[0];
+    $_GET['device_group_url'] = $device_group;
 
     require_once(__DIR__.'/device.php');
+}
+else if (isset($part_group) && !isset($part_url)) {
+    $_GET['device_group_url'] = $device_group;
+    $_GET['selected_part_category'] = $part_group;
+
+    require_once(__DIR__ . '/category-part.php');
 }
 else if (mysqli_num_rows($selected_part_data) > 0 && isset($part_url)) {
     $_GET['selected_part_data'] = $selected_part_data;

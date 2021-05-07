@@ -24,6 +24,7 @@
     }
     else
 	{
+		header('Location: /sign-in.php');
 //		print "Включите куки!";
     }
 

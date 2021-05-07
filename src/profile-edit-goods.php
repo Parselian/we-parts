@@ -1,11 +1,14 @@
 <?
-	require_once(__DIR__.'/configs/db-cfg.php');
 
-	$link = mysqli_connect($host, $username, $password, $database)
-        or die('Connection error! ' . mysqli_error($link));
 
+	/*---------------------- IS LOGGED CHECK --------------------------*/
     if (isset($_COOKIE['id']) && isset($_COOKIE['hash']))
     {
+		require_once(__DIR__.'/configs/db-cfg.php');
+
+		$link = mysqli_connect($host, $username, $password, $database)
+			or die('Connection error! ' . mysqli_error($link));
+
         $id = $_COOKIE['id'];
         $query = mysqli_query($link, "SELECT * FROM ENGINEERS WHERE ENGINEER_ID = '".intval($id)."' LIMIT 1")
             or die('Error! ' . mysqli_error($link));
@@ -23,10 +26,10 @@
         }
     }
     else
-        {
-            header('Location: /sign-in');
-            print "Включите куки!";
-        }
+    {
+    	header('Location: /sign-in');
+	}
+	/*---------------------- IS LOGGED CHECK END --------------------------*/
 
 	require_once(__DIR__ . '/modules/header.php');
 ?>
@@ -37,108 +40,59 @@
 	</h1>
 
 	<form action="#" method="POST" class="profile-edit-goods__page-form">
+
 		<div class="profile-edit-goods__row">
 			<h2 class="profile-edit-goods__title">Выберите тип устройства:</h2>
 			<section class="category-devices">
 				<input type="hidden" id="selected-device">
-				<div class="tile tile_small" data-device="macbook">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#macbook"></use>
-					</svg>
-					<div class="tile__text">На MacBook</div>
-				</div>
 
-				<div class="tile tile_small" data-device="imac">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#imac"></use>
-					</svg>
-					<div class="tile__text">На iMac</div>
-				</div>
+				<?
+					$link = mysqli_connect($host, $username, $password, $database)
+						or die('Connection error! ' . mysqli_error($link));
 
-				<div class="tile tile_small" data-device="iphone">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#iphone"></use>
-					</svg>
-					<div class="tile__text">На iPhone</div>
-				</div>
+					$device_groups = mysqli_query($link, "SELECT * FROM DEVICE_GROUP")
+						or die('Error! ' . mysqli_error($link));
 
-				<div class="tile tile_small" data-device="ipad">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#ipad"></use>
-					</svg>
-					<div class="tile__text">На iPad</div>
-				</div>
+					for ($i = 0; $i < mysqli_num_rows($device_groups); ++$i)
+					{
+						$device_group = mysqli_fetch_row($device_groups);
+						/*
+						 * $device_group[0] = DEVICE_GROUP_ID
+						 * $device_group[1] = DEVICE_GROUP_URL
+						 * $device_group[2] = DEVICE_GROUP_NAME
+						 * */
 
-				<div class="tile tile_small" data-device="apple-watch">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#apple-watch"></use>
-					</svg>
-					<div class="tile__text">На Watch</div>
-				</div>
+						?>
+							<div class="tile tile_small tile-device" data-device="<?=$device_group[1]?>">
+								<svg class="tile__icon">
+									<use xlink:href="./images/stack/sprite.svg#<?=$device_group[1]?>"></use>
+								</svg>
+								<div class="tile__text">на <?=$device_group[2]?></div>
+							</div>
+						<?
+					}
+				?>
 			</section>
 		</div>
 
 		<div class="profile-edit-goods__row">
 			<h2 class="profile-edit-goods__title">Выберите тип запчасти:</h2>
 
-			<select name="selected-part" id="selected-part" class="profile-edit-goods__select profile-edit-goods__select_mobile">
-				<option disabled selected>Выберите тип запчасти</option>
-				<option val="">Аккумулятор</option>
-				<option val="">Дисплей</option>
-				<option val="">Клавиатура</option>
-				<option val="">Зарядное ус-во</option>
+			<select name="selected-cat-part" id="selected-category-part" class="profile-edit-goods__select
+			profile-edit-goods__select_mobile">
+				<option name="option-disabled" disabled selected>Выберите тип запчасти</option>
 			</select>
 
 			<section class="category-parts">
 				<input type="hidden" id="selected-part">
-				<div class="tile tile_small" data-device="accumulator">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#accumulator"></use>
-					</svg>
-					<div class="tile__text">Аккумулятор</div>
-				</div>
 
-				<div class="tile tile_small" data-device="display">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#display-frame"></use>
-					</svg>
-					<div class="tile__text">Дисплей</div>
-				</div>
-
-				<div class="tile tile_small" data-device="cooling">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#cooling-system"></use>
-					</svg>
-					<div class="tile__text">Охлаждение</div>
-				</div>
-
-				<div class="tile tile_small" data-device="motherboard">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#motherboard"></use>
-					</svg>
-					<div class="tile__text">Плата</div>
-				</div>
-
-				<div class="tile tile_small" data-device="keyboard">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#keyboard"></use>
-					</svg>
-					<div class="tile__text">Клавиатура</div>
-				</div>
-
-				<div class="tile tile_small" data-device="charger">
-					<svg class="tile__icon">
-						<use xlink:href="./images/stack/sprite.svg#charger"></use>
-					</svg>
-					<div class="tile__text">зарядные ус-ва</div>
-				</div>
 			</section>
 		</div>
 
 		<div class="profile-edit-goods__row">
 			<h2 class="profile-edit-goods__title">Выберите запчасть:</h2>
 
-			<select name="selected-part" id="selected-part" class="profile-edit-goods__select">
+			<select name="parts-list" id="parts-list" class="profile-edit-goods__select">
 				<option val="none" disabled selected>Выберите запчасть</option>
 				<option val="1">Аккумулятор MacBook Air B11309</option>
 				<option val="2">Аккумулятор MacBook Air B11309</option>

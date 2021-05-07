@@ -32,7 +32,7 @@
                 or die('Error! ' . mysqli_error($link));
 
             setcookie("id", $data['ENGINEER_ID'], time() + 60 * 60 * 24 * 30, "/");
-            setcookie("hash", $hash, time()+60*60*24*30, "/", null, 1, true); // httponly !!!
+            setcookie("hash", $hash, time()+60*60*24*30, "/", null, null, true); // httponly !!!
 
             header('Location: /configs/check-login.php');
             exit();

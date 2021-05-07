@@ -26,9 +26,9 @@
         }
     }
     else
-        {
+	{
 //            print "Включите куки!";
-        }
+    }
 
 	require_once(__DIR__ . '/modules/header.php');
 ?>
