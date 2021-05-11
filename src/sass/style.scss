@@ -124,6 +124,7 @@ button {
   }
 
   &__submit {
+    position: relative;
     padding: 7px 15px;
     color: $alt-text-color;
     background-color: $accent-catalog-color;
@@ -132,6 +133,19 @@ button {
     border-radius: 5px;
     font-size: 18px;
     text-decoration: none;
+    &-label {
+      position: absolute;
+      left: 0;
+      bottom: -25px;
+      font-size: 14px;
+      color: #000;
+      &_success {
+        color: green;
+      }
+      &_error {
+        color: red
+      }
+    }
   }
 }
 

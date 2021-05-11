@@ -95,6 +95,7 @@ button {
     border-color: #008081; }
 
 .form__submit {
+  position: relative;
   padding: 7px 15px;
   color: #fff;
   background-color: #008081;
@@ -103,6 +104,16 @@ button {
   border-radius: 5px;
   font-size: 18px;
   text-decoration: none; }
+  .form__submit-label {
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+    font-size: 14px;
+    color: #000; }
+    .form__submit-label_success {
+      color: green; }
+    .form__submit-label_error {
+      color: red; }
 
 /*------- TYPOGRAPHIC -------*/
 .text_bold {

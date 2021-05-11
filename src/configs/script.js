@@ -14,7 +14,6 @@ $(window).on('load', function() {
             if (list.hasClass('footer__list_open')) {
                 list.removeClass('footer__list_open').slideUp()
             } else {
-                console.log(list)
                 list.addClass('footer__list_open').slideDown()
             }
 
@@ -101,20 +100,30 @@ $(window).on('load', function() {
 
     const getPartsInfo = (selector) => {
         const partsGroupUrl = $(selector).val() ? $(selector).val() : $('#selected-category-part').val();
+
+        const fillPartsSelect = (data) => {
+            $('#parts-list option').not(':disabled').remove();
+            $('#parts-list').val('none');
+            data.forEach(item => {
+                $('#parts-list').append(`<option value="${item[1]}">${item[2]}</option>`)
+            })
+        }
+
         $.ajax({
             url: '/functions/get_parts.php',
-            method: 'GET',
+            method: "GET",
+            dataType: 'json',
             data: {
                 parts_group_url: partsGroupUrl
             },
-            dataType: 'json',
             success: function(data) {
-                console.log(data);
+                fillPartsSelect(data);
             }
         })
     }
 
-    /*-------------- PROFILE EDIT GOODS PAGE FUNCS ---------------*/
+
+    /* -------------- PROFILE EDIT GOODS PAGE FUNCS --------------- */
     $(document).on('click', function(e) {
         const target = $(e.target);
 
@@ -131,12 +140,46 @@ $(window).on('load', function() {
             getPartsInfo('#selected-part');
             return;
         }
+
     })
 
-    $('#selected-part').on('change', function(e) {
-        const selectedDeviceVal = $('#selected-device').val(),
-            selectedPartVal = $('#selected-part').val();
+    $('#parts-list').on('change', function(e) {
+        const target = $(e.target);
 
+        $.ajax({
+            url: '/functions/get_part_info.php',
+            method: 'GET',
+            dataType: 'json',
+            data: {
+                part_url: target.val()
+            },
+            success: function(data) {
+                $('.profile-edit-goods__img').attr('src', `/images/${data[4]}.jpg`)
+                $('#old-price').val(data[1]).attr('placeholder', `${data[1]} &#8381;`)
+                $('#old-amount').val(data[2]).attr('placeholder', `${data[2]} шт.`)
+            }
+        })
+    })
 
+    $('#change-product-info-form').on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: '/functions/update_part_info.php',
+            method: 'POST',
+            data: {
+                new_price: $('#new-price').val() ? $('#new-price').val() : $('#old-price').val(),
+                new_amount: $('#new-amount').val() ? $('#new-amount').val() : $('#old-amount').val(),
+                part_url: $('#parts-list').val()
+            },
+            success: function() {
+                $(`.form__submit-label`).text('Успешно!')
+                $(`.form__submit-label`).removeClass('form__submit-label_error').addClass('form__submit-label_success')
+            },
+            error: function() {
+                $(`.form__submit-label`).text('Произошла ошибка!')
+                $(`.form__submit-label`).removeClass('form__submit-label_success').addClass('form__submit-label_error')
+            }
+        })
     })
 });

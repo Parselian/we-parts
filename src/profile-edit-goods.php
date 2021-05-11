@@ -39,7 +39,7 @@
 		Изменение данных о товарах
 	</h1>
 
-	<form action="#" method="POST" class="profile-edit-goods__page-form">
+	<form id="change-product-info-form" action="#" method="POST" class="profile-edit-goods__page-form">
 
 		<div class="profile-edit-goods__row">
 			<h2 class="profile-edit-goods__title">Выберите тип устройства:</h2>
@@ -61,7 +61,6 @@
 						 * $device_group[1] = DEVICE_GROUP_URL
 						 * $device_group[2] = DEVICE_GROUP_NAME
 						 * */
-
 						?>
 							<div class="tile tile_small tile-device" data-device="<?=$device_group[1]?>">
 								<svg class="tile__icon">
@@ -85,7 +84,6 @@
 
 			<section class="category-parts">
 				<input type="hidden" id="selected-part">
-
 			</section>
 		</div>
 
@@ -93,26 +91,8 @@
 			<h2 class="profile-edit-goods__title">Выберите запчасть:</h2>
 
 			<select name="parts-list" id="parts-list" class="profile-edit-goods__select">
-				<option val="none" disabled selected>Выберите запчасть</option>
-				<option val="1">Аккумулятор MacBook Air B11309</option>
-				<option val="2">Аккумулятор MacBook Air B11309</option>
-				<option val="3">Аккумулятор MacBook Air B11309</option>
-				<option val="4">Аккумулятор MacBook Air B11309</option>
+				<option value="none" disabled selected>Выберите запчасть</option>
 			</select>
-				<!--<div class="profile-edit-goods__select">
-					<div class="profile-edit-goods__select-input-wrap">
-						<div class="profile-edit-goods__select-input" data-part="">Аккумулятор MacBook Air B11309</div>
-						<svg class="profile-edit-goods__select-input-icon">
-							<use xlink:href="./images/stack/sprite.svg#arrow"></use>
-						</svg>
-					</div>
-					<ul class="profile-edit-goods__select-list">
-						<li class="profile-edit-goods__select-list-item" data-val="">Аккумулятор MacBook Air B11309</li>
-						<li class="profile-edit-goods__select-list-item" data-val="">Аккумулятор MacBook Air B11309</li>
-						<li class="profile-edit-goods__select-list-item" data-val="">Аккумулятор MacBook Air B11309</li>
-						<li class="profile-edit-goods__select-list-item" data-val="">Аккумулятор MacBook Air B11309</li>
-					</ul>
-				</div>-->
 		</div>
 
 		<div class="profile-edit-goods__row">
@@ -155,7 +135,10 @@
 <!--			</div>-->
 		</div>
 
-		<button type="submit" class="form__submit profile-edit-goods__form-button">Обновить данные</button>
+		<button type="submit" class="form__submit profile-edit-goods__form-button">
+			Обновить данные
+			<span class="form__submit-label"></span>
+		</button>
 	</form>
 
 </main>
