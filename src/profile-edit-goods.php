@@ -79,7 +79,7 @@
 
 			<select name="selected-cat-part" id="selected-category-part" class="profile-edit-goods__select
 			profile-edit-goods__select_mobile">
-				<option name="option-disabled" disabled selected>Выберите тип запчасти</option>
+				<option name="option-disabled" value="none" disabled selected>Выберите тип запчасти</option>
 			</select>
 
 			<section class="category-parts">

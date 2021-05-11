@@ -50,6 +50,16 @@ $(window).on('load', function() {
             }, 450)
     }
 
+    const hideFormRows = (selector) => {
+        $(selector)
+            .css('opacity', 1)
+            .slideUp(450)
+            .animate(
+                {opacity: 0},
+                {queue: false, duration: 300}
+            );
+    }
+
     const toggleTiles = (target, parentSelector, hiddenInputId, dataAttr) => {
         if (target.closest('.tile') && target.closest(parentSelector)) {
             $('select[name="selected-part"]').prop('selectedIndex', 0);
@@ -82,7 +92,7 @@ $(window).on('load', function() {
 
         const appendListItems = (data) => {
             $('#selected-category-part option').not('[name="option-disabled"]').remove();
-            $('#selected-category-part option[disabled]').attr('selected');
+            $('#selected-category-part').val('none');
 
             data.forEach(( item ) => {
                 $('#selected-category-part').append(`<option value="${item[1]}">${item[2]}</option>`)
@@ -136,10 +146,12 @@ $(window).on('load', function() {
         switch (true) {
             case !!target.parents('.tile-device').length || target.is('.tile-device'):
                 toggleTiles(target, '.category-devices', '#selected-device', 'data-device');
+                hideFormRows('.profile-edit-goods__row:not(:first-child)');
                 getPartCatsInfo('#selected-device');
                 break;
             case !!target.parents('.tile-part-group').length || target.is('.tile-part-group'):
                 toggleTiles(target, '.category-parts', '#selected-part', 'data-part-cat');
+                hideFormRows('.part-info__row');
                 getPartsInfo('#selected-part');
                 break;
             default:
