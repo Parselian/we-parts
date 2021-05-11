@@ -196,7 +196,6 @@ button {
   .burger-menu_open {
     left: 0; }
   .burger-menu__list-item {
-    padding: 5px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -208,6 +207,8 @@ button {
       height: 15px;
       fill: #e1e1e1; }
   .burger-menu__list-link {
+    padding: 5px 0;
+    width: 100%;
     text-decoration: none;
     font-weight: 600;
     color: #000; }
@@ -559,13 +560,18 @@ button {
       padding-top: 25px !important;
       width: 100%;
       overflow: hidden;
+      display: none;
       transform: translateY(-25px);
       border: 2px solid #008081;
-      border-top: none; }
+      border-top: none;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px; }
       .category-parts__mobile-list-item {
-        padding: 7px 15px;
         border-bottom: 1px solid #c4c4c4; }
       .category-parts__mobile-list-link {
+        padding: 7px 15px;
+        width: 100%;
+        display: block;
         text-decoration: none;
         color: #555555; }
 
@@ -903,11 +909,10 @@ button {
     font-size: 16px; }
 
 .catalog__pagination {
-  margin-bottom: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between; }
-  .catalog__pagination-arrow, .catalog__pagination-dot {
+  .catalog__pagination-arrow, .catalog__pagination-dot, .catalog__pagination button, .catalog__pagination li {
     color: #555555;
     text-decoration: none; }
   .catalog__pagination-arrow {
@@ -936,6 +941,18 @@ button {
       background-color: #555555; }
     .catalog__pagination-dot:not(:last-child) {
       margin-right: 5px; }
+  .catalog__pagination button {
+    padding: 10px 14px;
+    line-height: 1;
+    border: 1px solid #c4c4c4;
+    background: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+  .catalog__pagination .slick-active > button {
+    color: #fff;
+    border-color: #fff;
+    background: #555555; }
 
 .product__row {
   display: flex;
@@ -1537,10 +1554,10 @@ button {
     width: 100%; }
     .burger-menu_open {
       top: 0; }
-    .burger-menu__list-item {
+    .burger-menu__list-item:not(:last-child) {
+      border-bottom: 1px solid #c4c4c4; }
+    .burger-menu__list-link {
       padding: 10px 0; }
-      .burger-menu__list-item:not(:last-child) {
-        border-bottom: 1px solid #c4c4c4; }
   .header__logo_desktop {
     display: none; }
   .header__logo_mobile {

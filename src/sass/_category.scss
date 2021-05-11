@@ -112,14 +112,19 @@
         padding-top: 25px !important;
         width: 100%;
         overflow: hidden;
+        display: none;
         transform: translateY(-25px);
         border: 2px solid $accent-catalog-color;
         border-top: none;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
         &-item {
-          padding: 7px 15px;
           border-bottom: 1px solid $border-color;
         }
         &-link {
+          padding: 7px 15px;
+          width: 100%;
+          display: block;
           text-decoration: none;
           color: $search-input-color;
         }

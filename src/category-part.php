@@ -33,8 +33,8 @@
 
 					?>
 						<li class="category-parts__mobile-list-item">
-							<a href="<?=$url .'/'. $part_group[1]?>" class="category-parts__mobile-list-link">
-								<?= $part_group[3]?>
+							<a href="<?= $url . '/' . $part_group[1]?>" class="category-parts__mobile-list-link">
+								<?= $part_group[2]?>
 							</a>
 						</li>
 					<?
@@ -68,9 +68,9 @@
 				?>
 					<a class="tile tile_small" href="<?= $url .'/'. $part_group_desc[1]?>">
 						<svg class="tile__icon">
-							<use xlink:href="/images/stack/sprite.svg#<?= $part_group_desc[4]?>"></use>
+							<use xlink:href="/images/stack/sprite.svg#<?= $part_group_desc[3]?>"></use>
 						</svg>
-						<span class="tile__text"><?= $part_group_desc[3]?></span>
+						<span class="tile__text"><?= $part_group_desc[2]?></span>
 					</a>
 				<?
 			}
@@ -137,9 +137,20 @@
 					?>
 						<div class="catalog__card">
 							<input type="hidden" value="<?=$part_data[3]?>">
+							<?
+								if (!file_exists(__DIR__ . '/images/' . $part_data[1] . '.jpg') &&
+								!file_exists(__DIR__ . '/images/webp/' . $part_data[1] . '.webp'))
+								{
+									$photo_url = 'no_photo';
+								}
+								else
+								{
+									$photo_url = $part_data[1];
+								}
+							?>
 							<picture>
-								<img src="/images/<?= $part_data[1]?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
-								<source srcset="/images/webp/<?= $part_data[1]?>.webp" type="image/webp">
+								<img src="/images/<?= $photo_url?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
+								<source srcset="/images/webp/<?= $photo_url?>.webp" type="image/webp">
 							</picture>
 
 							<a href="<?= $url?>" class="catalog__card-title"><?=
@@ -230,6 +241,6 @@
 </main>
 
 <? require_once(__DIR__ . '/modules/footer.php'); ?>
-
+<script src="/configs/catalog.js"></script>
 </body>
 </html>

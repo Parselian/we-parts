@@ -121,11 +121,11 @@
   }
 
   &__pagination {
-    margin-bottom: 40px;
+    //margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    &-arrow, &-dot {
+    &-arrow, &-dot, button, li {
       color: $search-input-color;
       text-decoration: none;
     }
@@ -161,6 +161,20 @@
       &:not(:last-child) {
         margin-right: 5px;
       }
+    }
+    button {
+      padding: 10px 14px;
+      line-height: 1;
+      border: 1px solid $border-color;
+      background: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+    }
+    .slick-active > button {
+      color: $alt-text-color;
+      border-color: $alt-text-color;
+      background: $search-input-color;
     }
   }
 }

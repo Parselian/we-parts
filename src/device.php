@@ -31,9 +31,9 @@
 
 					?>
 						<li class="category-parts__mobile-list-item">
-							<button data-part-group="<?= $part_group[0]?>" class="category-parts__mobile-list-link">
-								<?= $part_group[3]?>
-							</button>
+							<a href="<?= $url . '/' . $part_group[1]?>" class="category-parts__mobile-list-link">
+								<?= $part_group[2]?>
+							</a>
 						</li>
 					<?
 				}
@@ -147,9 +147,20 @@
 					?>
 						<div class="catalog__card">
 							<input type="hidden" value="<?=$part_data[3]?>">
+							<?
+								if (!file_exists(__DIR__ . '/images/' . $part_data[1] . '.jpg') &&
+								!file_exists(__DIR__ . '/images/webp/' . $part_data[1] . '.webp'))
+								{
+									$photo_url = 'no_photo';
+								}
+								else
+								{
+									$photo_url = $part_data[1];
+								}
+							?>
 							<picture>
-								<img src="/images/<?= $part_data[1]?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
-								<source srcset="/images/webp/<?= $part_data[1]?>.webp" type="image/webp">
+								<img src="/images/<?= $photo_url?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
+								<source srcset="/images/webp/<?= $photo_url?>.webp" type="image/webp">
 							</picture>
 
 							<a href="<?= $url ?>" class="catalog__card-title"><?= $part_data[2]?></a>
@@ -225,7 +236,7 @@
 			</div>
 		</div>
 
-		<p class="text">
+		<p class="text" style="margin-top: 40px">
 			Комплектующие для ноутбука обеспечивают его корректную работу. Усли они плохого качества, то устройство
 			может перестать работать, его срок службы значительно сократится. Выбирайте оригинальные адаптеры, платы,
 			аккумуляторы и многое другое для ремонта техники Apple, и она будет исправно служить в дальнейшем.
@@ -240,6 +251,9 @@
 </main>
 
 <? require_once(__DIR__ . '/modules/footer.php'); ?>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+<script src="/configs/catalog.js"></script>
 </body>
 </html>

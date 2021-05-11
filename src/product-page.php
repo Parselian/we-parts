@@ -27,7 +27,7 @@
 	} else {
 	    $get_part_price = mysqli_query($link,
 	        "SELECT * FROM PARTS_PRICES WHERE PART_URL = '" . $part_data[1] . "' AND 
-							ENGINEER_ID = '".$engineer_id."' LIMIT 1")
+							ENGINEER_ID = 0 LIMIT 1")
 	    or die ('Error! ' . mysqli_error($link));
 
 	    $part_price = mysqli_fetch_row($get_part_price);
@@ -50,9 +50,20 @@
 	<div class="product">
 		<div class="product__row product__general">
 			<div class="product__col product__img-wrap">
+				<?
+					if (!file_exists(__DIR__ . '/images/' . $part_data[1] . '.jpg') &&
+					!file_exists(__DIR__ . '/images/webp/' . $part_data[1] . '.webp'))
+					{
+						$photo_url = 'no_photo';
+					}
+					else
+					{
+						$photo_url = $part_data[1];
+					}
+				?>
 				<picture>
-					<source srcset="/images/webp/<?= $part_data[1] ?>.webp" type="image/webp">
-					<img src="/images/<?= $part_data[1] ?>.jpg" alt="<?= $part_data[2] ?>" class="product__img">
+					<source srcset="/images/webp/<?= $photo_url ?>.webp" type="image/webp">
+					<img src="/images/<?= $photo_url ?>.jpg" alt="<?= $part_data[2] ?>" class="product__img">
 				</picture>
 			</div>
 

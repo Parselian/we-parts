@@ -4,6 +4,7 @@ require_once(__DIR__.'/configs/db-cfg.php');
 
 
 $_GET['url'] = strtr($_GET['url'],['.php'=>'']);
+$breadcrumbs = [];
 $parsed_url = parse_url($_GET['url']);
 list($device_group, $part_group, $part_url) = explode('/', $parsed_url['path']);
 

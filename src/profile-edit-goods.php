@@ -143,6 +143,8 @@
 
 </main>
 
-<? require_once(__DIR__ . '/modules/footer.php') ?>
+	<? require_once(__DIR__ . '/modules/footer.php') ?>
+
+	<script src="/configs/edit-goods.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-    require_once(__DIR__.'/db-cfg.php');
+    require_once(__DIR__ . '/db-cfg.php');
 
     function generateHASH($length = 6) {
         $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";

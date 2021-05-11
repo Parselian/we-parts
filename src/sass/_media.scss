@@ -225,12 +225,13 @@
       }
       &__list {
         &-item {
-          padding: 10px 0;
           &:not(:last-child) {
             border-bottom: 1px solid $border-color;
           }
         }
-
+        &-link {
+          padding: 10px 0;
+        }
       }
     }
   }
