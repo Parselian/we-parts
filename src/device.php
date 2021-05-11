@@ -66,9 +66,9 @@
 				?>
 					<a class="tile tile_small" href="<?= $url .'/'. $part_group_desc[1]?>">
 						<svg class="tile__icon">
-							<use xlink:href="/images/stack/sprite.svg#<?= $part_group_desc[4]?>"></use>
+							<use xlink:href="/images/stack/sprite.svg#<?= $part_group_desc[3]?>"></use>
 						</svg>
-						<span class="tile__text"><?= $part_group_desc[3]?></span>
+						<span class="tile__text"><?= $part_group_desc[2]?></span>
 					</a>
 				<?
 			}

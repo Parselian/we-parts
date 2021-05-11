@@ -74,7 +74,7 @@
 			</section>
 		</div>
 
-		<div class="profile-edit-goods__row">
+		<div class="profile-edit-goods__row category-parts__row" style="display: none">
 			<h2 class="profile-edit-goods__title">Выберите тип запчасти:</h2>
 
 			<select name="selected-cat-part" id="selected-category-part" class="profile-edit-goods__select
@@ -87,7 +87,7 @@
 			</section>
 		</div>
 
-		<div class="profile-edit-goods__row">
+		<div class="profile-edit-goods__row parts-list__row" style="display: none">
 			<h2 class="profile-edit-goods__title">Выберите запчасть:</h2>
 
 			<select name="parts-list" id="parts-list" class="profile-edit-goods__select">
@@ -95,11 +95,11 @@
 			</select>
 		</div>
 
-		<div class="profile-edit-goods__row">
+		<div class="profile-edit-goods__row part-info__row" style="display: none">
 			<img src="./images/macbook-batteries.jpg" alt="" class="profile-edit-goods__img">
 		</div>
 
-		<div class="profile-edit-goods__row">
+		<div class="profile-edit-goods__row part-info__row" style="display: none">
 			<div class="profile-edit-goods__row-inputs">
 				<div class="profile-edit-goods__input-wrap">
 					<label for="old-price" class="form__label profile-edit-goods__label">Текущая цена</label>
@@ -133,12 +133,12 @@
 <!--							  placeholder="Введите новое название"></textarea>-->
 <!--				</div>-->
 <!--			</div>-->
-		</div>
-
 		<button type="submit" class="form__submit profile-edit-goods__form-button">
 			Обновить данные
 			<span class="form__submit-label"></span>
 		</button>
+		</div>
+
 	</form>
 
 </main>

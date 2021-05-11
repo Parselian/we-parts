@@ -28,6 +28,28 @@ $(window).on('load', function() {
 
 
 
+
+    /* -------------- PROFILE EDIT GOODS PAGE FUNCS --------------- */
+    const toggleFormRows = (selector) => {
+         $(selector)
+            .css('opacity', 1)
+            .slideUp(450)
+            .animate(
+                {opacity: 0},
+                {queue: false, duration: 300}
+            );
+
+         setTimeout(() => {
+                   $(selector)
+                    .css('opacity', 0)
+                    .slideDown(450)
+                    .animate(
+                        {opacity: 1},
+                        {queue: false, duration: 400}
+                    );
+            }, 450)
+    }
+
     const toggleTiles = (target, parentSelector, hiddenInputId, dataAttr) => {
         if (target.closest('.tile') && target.closest(parentSelector)) {
             $('select[name="selected-part"]').prop('selectedIndex', 0);
@@ -40,13 +62,7 @@ $(window).on('load', function() {
 
     const getPartCatsInfo = (selector) => {
         const appendTiles = (data) => {
-            $('.category-parts')
-                .css('opacity', 1)
-                .slideUp(450)
-                .animate(
-                    {opacity: 0},
-                    {queue: false, duration: 300}
-                );
+           toggleFormRows('.category-parts__row');
 
             setTimeout(() => {
                 $('.category-parts .tile').remove();
@@ -62,16 +78,6 @@ $(window).on('load', function() {
                     `)
                 })
             }, 310)
-
-            setTimeout(() => {
-                   $('.category-parts')
-                    .css('opacity', 0)
-                    .slideDown(450)
-                    .animate(
-                        {opacity: 1},
-                        {queue: false, duration: 400}
-                    );
-            }, 450)
         }
 
         const appendListItems = (data) => {
@@ -104,6 +110,7 @@ $(window).on('load', function() {
         const fillPartsSelect = (data) => {
             $('#parts-list option').not(':disabled').remove();
             $('#parts-list').val('none');
+
             data.forEach(item => {
                 $('#parts-list').append(`<option value="${item[1]}">${item[2]}</option>`)
             })
@@ -118,29 +125,32 @@ $(window).on('load', function() {
             },
             success: function(data) {
                 fillPartsSelect(data);
+                toggleFormRows('.parts-list__row');
             }
         })
     }
 
-
-    /* -------------- PROFILE EDIT GOODS PAGE FUNCS --------------- */
     $(document).on('click', function(e) {
         const target = $(e.target);
 
-
-        if (!!target.parents('.tile-device').length || target.is('.tile-device')) {
-            toggleTiles(target, '.category-devices', '#selected-device', 'data-device');
-            getPartCatsInfo('#selected-device');
-            return;
+        switch (true) {
+            case !!target.parents('.tile-device').length || target.is('.tile-device'):
+                toggleTiles(target, '.category-devices', '#selected-device', 'data-device');
+                getPartCatsInfo('#selected-device');
+                break;
+            case !!target.parents('.tile-part-group').length || target.is('.tile-part-group'):
+                toggleTiles(target, '.category-parts', '#selected-part', 'data-part-cat');
+                getPartsInfo('#selected-part');
+                break;
+            default:
+                break;
         }
+    })
 
+    $('#selected-category-part').on('change', function() {
+        $('#selected-part').val($(this).val());
 
-        if (!!target.parents('.tile-part-group').length || target.is('.tile-part-group')) {
-            toggleTiles(target, '.category-parts', '#selected-part', 'data-part-cat');
-            getPartsInfo('#selected-part');
-            return;
-        }
-
+        getPartsInfo('#selected-part');
     })
 
     $('#parts-list').on('change', function(e) {
@@ -157,11 +167,12 @@ $(window).on('load', function() {
                 $('.profile-edit-goods__img').attr('src', `/images/${data[4]}.jpg`)
                 $('#old-price').val(data[1]).attr('placeholder', `${data[1]} &#8381;`)
                 $('#old-amount').val(data[2]).attr('placeholder', `${data[2]} шт.`)
+               toggleFormRows('.part-info__row');
             }
         })
     })
 
-    $('#change-product-info-form').on('submit', function(e) {
+    $('form#change-product-info-form').on('submit', function(e) {
         e.preventDefault();
 
         $.ajax({
@@ -175,10 +186,16 @@ $(window).on('load', function() {
             success: function() {
                 $(`.form__submit-label`).text('Успешно!')
                 $(`.form__submit-label`).removeClass('form__submit-label_error').addClass('form__submit-label_success')
+                setTimeout(() => {
+                    $('.form__submit-label').text('')
+                }, 3000)
             },
             error: function() {
                 $(`.form__submit-label`).text('Произошла ошибка!')
                 $(`.form__submit-label`).removeClass('form__submit-label_success').addClass('form__submit-label_error')
+                setTimeout(() => {
+                    $('.form__submit-label').text('')
+                }, 3000)
             }
         })
     })
