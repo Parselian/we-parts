@@ -812,7 +812,7 @@ button {
 .catalog__card {
   margin-bottom: 1%;
   padding: 10px;
-  width: 24.23%;
+  width: 24.23% !important;
   min-width: 220px;
   border: 1px solid #c4c4c4; }
   .catalog__cards {
@@ -823,6 +823,7 @@ button {
   .catalog__card-img {
     margin-bottom: 10px;
     width: 100%;
+    height: 240px;
     object-fit: cover; }
   .catalog__card-title {
     margin-bottom: 10px;
@@ -911,7 +912,7 @@ button {
 .catalog__pagination {
   display: flex;
   align-items: center;
-  justify-content: space-between; }
+  justify-content: center; }
   .catalog__pagination-arrow, .catalog__pagination-dot, .catalog__pagination button, .catalog__pagination li {
     color: #555555;
     text-decoration: none; }
@@ -1466,7 +1467,7 @@ button {
     font-size: 20px; }
   .catalog__card {
     margin-bottom: 1%;
-    width: 32.63%; }
+    width: 32.63% !important; }
     .catalog__card:not(:nth-child(4n)) {
       margin-right: unset; }
     .catalog__card:not(:nth-child(3n)) {
@@ -1613,7 +1614,7 @@ button {
   .category-parts {
     justify-content: center; }
   .catalog__card {
-    width: 49.5%; }
+    width: 49.5% !important; }
     .catalog__card:not(:nth-child(3n)) {
       margin-right: unset; }
     .catalog__card:not(:nth-child(2n)) {
@@ -1789,6 +1790,8 @@ button {
       display: block; }
   .catalog__card {
     min-width: unset; }
+    .catalog__card-img {
+      height: 150px; }
     .catalog__card-title {
       font-size: 13px; }
     .catalog__card-btn {

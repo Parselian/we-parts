@@ -26,8 +26,4 @@ $(window).on('load', function() {
         $(this).find('.header__contacts-popup').toggleClass('header__contacts-popup_open')
     })
 
-
-
-
-
 });

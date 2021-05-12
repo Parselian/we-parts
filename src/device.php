@@ -62,9 +62,10 @@
 				 * $part_group[3] - part_group_name
 				 * $part_group[4] - part_group_icon_url
 				 */
-
+				$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+				$url = $url .'/'. $part_group_desc[1];
 				?>
-					<a class="tile tile_small" href="<?= $url .'/'. $part_group_desc[1]?>">
+					<a class="tile tile_small" href="<?= $url ?>">
 						<svg class="tile__icon">
 							<use xlink:href="/images/stack/sprite.svg#<?= $part_group_desc[3]?>"></use>
 						</svg>

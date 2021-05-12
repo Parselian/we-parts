@@ -64,7 +64,6 @@
 				 * $part_group[3] - part_group_name
 				 * $part_group[4] - part_group_icon_url
 				 */
-
 				?>
 					<a class="tile tile_small" href="<?= $url .'/'. $part_group_desc[1]?>">
 						<svg class="tile__icon">
@@ -132,8 +131,9 @@
 					 * */
 
 					/*----------------------------- КОНЕЦ ПРОВЕРКИ НА ЗАЛОГИНЕННОСТЬ -------------------------------------------*/
-
-					  $url = $url . '/' . $parts_group_url . '/' . $part_data[1];
+					$url = ((!empty($_SERVER['HTTPS'])) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/' . $device_group_url . '/' .
+						$parts_group_url;
+					$url = $url . '/' . $part_data[1];
 					?>
 						<div class="catalog__card">
 							<input type="hidden" value="<?=$part_data[3]?>">
@@ -241,6 +241,9 @@
 </main>
 
 <? require_once(__DIR__ . '/modules/footer.php'); ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
 <script src="/configs/catalog.js"></script>
 </body>
 </html>
