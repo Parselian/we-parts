@@ -912,7 +912,8 @@ button {
 .catalog__pagination {
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  flex-wrap: wrap; }
   .catalog__pagination-arrow, .catalog__pagination-dot, .catalog__pagination button, .catalog__pagination li {
     color: #555555;
     text-decoration: none; }

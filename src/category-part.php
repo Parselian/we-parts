@@ -149,8 +149,8 @@
 								}
 							?>
 							<picture>
-								<img src="/images/<?= $photo_url?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
-								<source srcset="/images/webp/<?= $photo_url?>.webp" type="image/webp">
+								<img data-lazy="/images/<?= $photo_url?>.jpg" alt="<?= $part_data[2]?>" class="catalog__card-img">
+								<source data-lazy="/images/webp/<?= $photo_url?>.webp" type="image/webp">
 							</picture>
 
 							<a href="<?= $url?>" class="catalog__card-title"><?=

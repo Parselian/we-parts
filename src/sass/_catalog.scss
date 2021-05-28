@@ -130,6 +130,7 @@
     align-items: center;
     //justify-content: space-between;
     justify-content: center;
+    flex-wrap: wrap;
     &-arrow, &-dot, button, li {
       color: $search-input-color;
       text-decoration: none;

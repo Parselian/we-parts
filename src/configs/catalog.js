@@ -11,6 +11,7 @@ $(window).on('load', function() {
             slidesPerRow: 4,
             adaptiveHeight: true,
             swipe: false,
+            lazyLoad: 'ondemand',
             dotsClass: 'catalog__pagination',
             responsive: [
                 {
